@@ -1,0 +1,1 @@
+clear; echo "                                                                                                                                                                                               " && date | figlet -w 80 -f "ANSI Shadow" | lolcat -F 0.1

@@ -1,0 +1,1 @@
+clear; uname -o | figlet -c -t -f "ANSI Shadow" | lolcat -F 0.05 -a -d 2 && uname -r| figlet -c -t -f "ANSI Shadow" | lolcat -F 0.05 -a -d 2 && uname -i | figlet -c -t -f "ANSI Shadow" | lolcat -F 0.05 -a -d 2
