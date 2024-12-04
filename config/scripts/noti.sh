@@ -1,1 +1,1 @@
-notify-send "🧨 🤷‍Dunst Notification Test 👽" "😁🍆💚Notification Test😹💪👽"
+notify-send "🧨 🤷‍Notification Test 👽" "😁🍆💚Notification Test😹💪👽"
