@@ -1,1 +1,0 @@
-clear; cbonsai -i -l

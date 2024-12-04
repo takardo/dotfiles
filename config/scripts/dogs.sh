@@ -1,1 +1,0 @@
-viu dogs.jpg

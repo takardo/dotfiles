@@ -1,1 +1,0 @@
-clear; echo "                                                                            " && date  | lolcat
