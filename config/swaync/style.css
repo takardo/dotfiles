@@ -1,0 +1,152 @@
+@define-color cc-bg rgba(30, 20, 50, 0.9); /* Control Center background - dark purple */
+@define-color noti-border-color rgba(200, 200, 255, 0.2); /* Subtle light border */
+@define-color noti-bg rgba(50, 30, 70, 0.85); /* Notification background - deep purple */
+@define-color noti-bg-opaque rgba(50, 30, 70, 1.0); /* Solid deep purple */
+@define-color noti-bg-darker rgba(40, 20, 50, 0.85); /* Darker purple background */
+@define-color noti-bg-hover rgba(70, 40, 100, 0.95); /* Hover background - brighter purple */
+@define-color noti-bg-hover-opaque rgba(70, 40, 100, 1.0); /* Solid hover purple */
+@define-color noti-bg-focus rgba(80, 50, 120, 0.8); /* Focus background - vibrant purple */
+@define-color noti-close-bg rgba(255, 80, 80, 0.15); /* Close button background - soft red */
+@define-color noti-close-bg-hover rgba(255, 80, 80, 0.3); /* Hover close button background */
+@define-color text-color rgba(240, 240, 255, 0.9); /* Main text color - soft white */
+@define-color text-color-disabled rgba(150, 150, 170, 1.0); /* Disabled text - muted gray */
+@define-color bg-selected rgba(100, 170, 170, 0.8); /* Selected background - teal highlight */
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.6); /* Dark overlay */
+@define-color mpris-button-hover rgba(20, 40, 60, 0.5); /* Button hover effect - teal gray */
+
+/* All other styles are the same, just updated to use these new colors */
+.notification-row {
+  outline: none;
+}
+
+.notification-row:focus, .notification-row:hover {
+  background: @noti-bg-focus;
+}
+
+.notification-row .notification-background {
+  padding: 6px 12px;
+}
+
+.notification-row .notification-background .close-button {
+  background: @noti-close-bg;
+  color: @text-color;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.notification-row .notification-background .close-button:hover {
+  box-shadow: none;
+  background: @noti-close-bg-hover;
+  transition: background 0.15s ease-in-out;
+  border: none;
+}
+
+.notification-row .notification-background .notification {
+  border-radius: 12px;
+  border: 1px solid @noti-border-color;
+  padding: 0;
+  background: @noti-bg;
+}
+
+.notification-row .notification-background .notification .notification-action, .notification-row .notification-background .notification .notification-default-action {
+  padding: 4px;
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  color: @text-color;
+  transition: background 0.15s ease-in-out;
+}
+
+.notification-row .notification-background .notification .notification-action:hover, .notification-row .notification-background .notification .notification-default-action:hover {
+  background: @noti-bg-hover;
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  border-radius: 12px;
+}
+
+.notification-row .notification-background .notification .notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content {
+  background: transparent;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .image {
+  border-radius: 100px;
+  margin: 4px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .app-icon {
+  -gtk-icon-effect: none;
+  -gtk-icon-shadow: 0 1px 4px black;
+  margin: 6px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
+  font-size: 16px;
+  font-weight: bold;
+  color: @text-color;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+  font-size: 16px;
+  font-weight: bold;
+  color: @text-color;
+  margin-right: 30px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
+  font-size: 15px;
+  color: @text-color;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content progressbar {
+  margin-top: 4px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .body-image {
+  margin-top: 4px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply {
+  margin-top: 4px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-entry {
+  background: @noti-bg-darker;
+  color: @text-color;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button {
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  color: @text-color;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button:hover {
+  background: @noti-bg-hover;
+}
+
+/* Control Center */
+.control-center {
+  background: @cc-bg;
+  color: @text-color;
+  border-radius: 12px;
+}
+
+/* Remaining styles follow the same pattern, applying updated colors */
