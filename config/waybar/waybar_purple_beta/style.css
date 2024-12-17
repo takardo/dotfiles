@@ -239,3 +239,19 @@ window#waybar.solo {
     background-color: rgba(188, 123, 231, 0.3); /* Light purple on hover */
     border-color: rgba(188, 123, 231, 1); /* Purple border on hover */
 }
+
+/* Custom dolphin button */
+#custom-dolphin {
+    margin: 2px 8px; /* Adjusted margin for consistency */
+    padding: 4px 8px; /* Reduced padding */
+    background-color: rgba(10, 20, 40, 0.9); /* Dark blue background */
+    border: 2px solid rgba(188, 123, 231, 1); /* Thicker purple border */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect */
+#custom-dolphin:hover {
+    background-color: rgba(188, 123, 231, 0.3); /* Light purple on hover */
+    border-color: rgba(188, 123, 231, 1); /* Purple border on hover */
+}
