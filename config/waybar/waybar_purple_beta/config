@@ -7,7 +7,8 @@
         "custom/scratchpad",
 	"custom/waypaper",
         "custom/firefox",
-        "tray"
+        "custom/dolphin",
+	"tray"
     ],
     "modules-center": [
         "hyprland/window"
@@ -165,7 +166,6 @@
     "format": "",
     "return-type": "json",
     "interval": 3,
-    "exec": "hyprctl workspaces -j | jq -r '.[] | select(.name == \"special:magic\") | \"{\"text\":\"\", \"tooltip\":\" Magic Workspace Active\"}' || echo '{\"text\":\"\", \"tooltip\":\" Magic Workspace Inactive\"}'",
     "on-click": "hyprctl dispatch togglespecialworkspace magic",
     "on-click-right": "hyprctl dispatch movetoworkspace special:magic"
     },
@@ -210,4 +210,10 @@
         },
         "tooltip": "Firefox Status"
     },
-}
+    "custom/dolphin": {
+    	"format": " ",  // Icon for Dolphin (you can change it if you want)
+    	"on-click": "exec dolphin",  // Opens Dolphin when clicked
+    	"tooltip": "Dolphin"
+    }
+    },
+    
