@@ -1,0 +1,9 @@
+* {
+    main-bg:            #0A1428ff; /* Dark blue background */
+    main-fg:            #f8f8f2ff; /* Light text color */
+    main-br:            #bc7be7ff; /* Soft purple for borders */
+    select-bg:          #4e1c91ff; /* Dark purple for selection background */
+    select-fg:          #f8f8f2ff; /* Light text for selection */
+    separatorcolor:     transparent;
+    border-color:       #bc7be7ff; /* Purple border color */
+}

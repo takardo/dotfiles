@@ -1,0 +1,202 @@
+/* General styling for all elements */
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Source Sans Pro", "FontAwesome 6 Free";
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+}
+
+/* Waybar overall styling */
+window#waybar {
+    color: rgba(188, 123, 231, 1); /* Purple text color */
+    background-color: rgba(82, 29, 128, 0.9); /* Soft purple background */
+    border-bottom: 2px solid rgba(188, 123, 231, 0.4); /* Purple border at the bottom */
+}
+
+window#waybar.solo {
+    color: rgba(188, 123, 231, 1); /* Purple text color */
+}
+
+/* Module styling */
+#workspaces,
+#custom-scratchpad,
+#mode,
+#battery,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#pulseaudio,
+#idle_inhibitor,
+#temperature,
+#custom-layout,
+#backlight,
+#clock,
+#custom-zypper,
+#custom-notification {
+margin: 0 6px;
+padding: 6px 10px; /* Added padding for better spacing */
+background-color: rgba(23, 63, 79, 0.5); /* Darker background for modules */
+border: 1px solid rgba(188, 123, 231, 0.5); /* Purple border around modules */
+border-radius: 5px; /* Rounded corners for modules */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+/* Workspace button colors */
+#workspaces button {
+padding: 0 5px;
+color: rgba(188, 123, 231, 1); /* Purple color */
+}
+
+#workspaces button.focused {
+color: rgba(115, 186, 37, 1); /* Focused workspace color */
+}
+
+#workspaces button.visible {
+color: rgba(115, 186, 37, 1); /* Visible workspace color */
+}
+
+#workspaces button.urgent {
+color: rgba(33, 164, 223, 1); /* Urgent workspace color */
+}
+
+/* Battery states */
+#battery.warning {
+color: rgba(255, 210, 4, 1); /* Warning battery color */
+}
+
+#battery.critical {
+color: rgba(238, 46, 36, 1); /* Critical battery color */
+}
+
+#battery.charging {
+color: rgba(217, 216, 216, 1); /* Charging battery color */
+}
+
+/* Bluetooth states */
+#bluetooth.disabled {
+color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.off {
+color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.connected {
+color: rgba(115, 186, 37, 1); /* Connected color */
+}
+
+/* Hover effect for modules */
+#workspaces:hover,
+#custom-scratchpad:hover,
+#mode:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#temperature:hover,
+#custom-layout:hover,
+#backlight:hover,
+#clock:hover,
+#custom-zypper:hover,
+#custom-notification:hover {
+background-color: rgba(188, 123, 231, 0.3); /* Light purple background on hover */
+border-color: rgba(188, 123, 231, 1); /* Light purple border on hover */
+}
+
+/* Custom wlogout button */
+#custom-wlogout {
+margin: 0 6px;
+padding: 6px 10px; /* Padding adjusted */
+background-color: rgba(23, 63, 79, 0.5);
+border: 1px solid rgba(188, 123, 231, 0.5); /* Purple border */
+border-radius: 5px;
+}
+
+#custom-wlogout:hover {
+background-color: rgba(188, 123, 231, 0.3); /* Light purple on hover */
+border-color: rgba(188, 123, 231, 1); /* Purple border on hover */
+}
+
+/* Custom hyprlock button */
+#custom-hyprlock {
+margin: 0 6px;
+padding: 6px 10px; /* Same padding as other modules */
+background-color: rgba(23, 63, 79, 0.5); /* Same background color */
+border: 1px solid rgba(188, 123, 231, 0.5); /* Purple border */
+border-radius: 5px; /* Same rounded corners */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+#custom-hyprlock:hover {
+background-color: rgba(188, 123, 231, 0.3); /* Light purple on hover */
+border-color: rgba(188, 123, 231, 1); /* Purple border on hover */
+}
+
+/* Disabled/Muted notifications (DND) */
+#custom-notification.dnd-notification {
+background-color: rgba(192, 57, 43, 0.3); /* Darker red for DND */
+border-color: rgba(192, 57, 43, 1); /* Darker red border */
+}
+
+#custom-notification.dnd-none {
+background-color: rgba(128, 128, 128, 0.3); /* Gray for no DND notifications */
+border-color: rgba(128, 128, 128, 1); /* Gray border */
+}
+
+/* Notification box style */
+#custom-notification {
+padding: 6px 10px; /* Padding for better spacing */
+background-color: rgba(23, 63, 79, 0.5); /* Darker background for consistency */
+border: 1px solid rgba(188, 123, 231, 0.5); /* Purple border */
+border-radius: 5px; /* Rounded corners */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+/* Notification Icon */
+#custom-notification span {
+font-size: 16px;
+color: rgba(188, 123, 231, 1); /* Purple color for icon */
+}
+
+/* When there are active notifications */
+#custom-notification.notification {
+background-color: rgba(115, 186, 37, 0.3); /* Lighter green for active notifications */
+border-color: rgba(115, 186, 37, 1); /* Lighter green border */
+}
+
+/* Hover effect for notifications */
+#custom-notification:hover {
+background-color: rgba(188, 123, 231, 0.3); /* Light purple on hover */
+border-color: rgba(188, 123, 231, 1); /* Purple border on hover */
+}
+
+/* Focused notification style */
+#custom-notification.focused {
+background-color: rgba(115, 186, 37, 0.3); /* Highlight active notifications */
+border-color: rgba(188, 123, 231, 1); /* Purple border on focus */
+}
+
+/* Keep other modules styled with rounded corners */
+#tray {
+margin: 0 6px;
+padding: 6px 10px; /* Same padding as other modules */
+background-color: rgba(23, 63, 79, 0.5); /* Same background color */
+border: 1px solid rgba(188, 123, 231, 0.5); /* Purple border */
+border-radius: 5px; /* Same rounded corners */
+}
+
+#window {
+margin: 0 6px;
+padding: 6px 10px; /* Same padding as other modules */
+background-color: rgba(23, 63, 79, 0.5); /* Same background color */
+border: 1px solid rgba(188, 123, 231, 1); /* Purple border */
+border-radius: 5px; /* Same rounded corners */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}

@@ -1,0 +1,5 @@
+[General]
+theme=Infinity-Kvantum
+
+[Applications]
+Default=VirtualBoxQt, VirtualBoxVM
