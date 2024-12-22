@@ -8,7 +8,7 @@ Kitty Theme - Base2Tone Lavender Dark
 
 Firefox Theme - Firefox Alpenglow
 
-![Firefox Wallpaper]([https://unsplash.com/photos/timelapse-photography-of-pink-vehicle-lights-near-buildings-Ib2e4-Qy9mQ])
+Firefox Wallpaper here - https://unsplash.com/photos/timelapse-photography-of-pink-vehicle-lights-near-buildings-Ib2e4-Qy9mQ
 
 Icon Theme - Amy Dark Icons
 
