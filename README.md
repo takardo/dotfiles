@@ -8,7 +8,11 @@ Kitty Theme - Base2Tone Lavender Dark
 
 Firefox Theme - plum torte
 
-![App Screenshot](config/assets/purpletheme.png)
-![App Screenshot](config/assets/20241203_13h13m13s_grim.png)
-![App Screenshot](config/assets/20241203_13h13m38s_grim.png)
-![App Screenshot](config/assets/20241203_13h13m48s_grim.png)
+![App Screenshot](assets/2024-12-21-162629_hyprshot.png.png)
+![App Screenshot](assets/2024-12-21-163022_hyprshot.png.png)
+![App Screenshot](assets/2024-12-21-163220_hyprshot.png)
+![App Screenshot](assets/2024-12-21-163221_hyprshot.png)
+![App Screenshot](assets/2024-12-21-163311_hyprshot.png)
+![App Screenshot](assets/2024-12-21-163834_hyprshot.png)
+![App Screenshot](assets/2024-12-21-163311_hyprshot.png)
+![App Screenshot](assets/2024-12-21-172407_hyprshot.png)
