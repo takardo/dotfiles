@@ -21,5 +21,5 @@ Kvantum Theme - Infinity Kvantum
 ![App Screenshot](assets/2024-12-21-163311_hyprshot.png)
 ![App Screenshot](assets/2024-12-21-172407_hyprshot.png)
 ![App Screenshot](assets/2024-12-22-131646_hyprshot.png)
-![App Screenshot](assets/2024-12-22-132245_hyprshot.png)
+![App Screenshot](assets/2024-12-24-032956_hyprshot.png)
 ![App Screenshot](assets/2024-12-21-163834_hyprshot.png)
