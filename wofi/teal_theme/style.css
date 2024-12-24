@@ -1,0 +1,58 @@
+/* Dark Teal Theme for Wofi with Focus, Active, and Selected States */
+
+/* Window */
+window {
+    border: 2px solid #1a3b3b; /* Darker border for contrast */
+    background-color: rgba(23, 45, 51, 0.9); /* Dark teal background */
+}
+
+/* Input box */
+#input {
+color: #a0e0d2; /* Soft light teal text */
+border: 2px solid #1a3b3b; /* Darker border to match the theme */
+background-color: rgba(33, 56, 61, 0.6); /* Muted dark teal background */
+font-size: 18px;
+}
+
+/* Outer box margins */
+#outer-box {
+margin: 10px;
+}
+
+/* Scrollbar */
+#scroll {
+margin: 5px 0px;
+font-size: 16px;
+color: #a0e0d2; /* Light teal color for scroll text */
+overflow: hidden; /* Hide the scrollbars */
+}
+
+/* Scroll labels */
+#scroll label {
+margin: 2px 0px;
+color: #a0e0d2; /* Light teal labels for consistency */
+}
+
+/* Selected entry style */
+#entry:selected {
+color: #1a3b3b; /* Dark teal text when selected */
+background-color: rgba(44, 88, 88, 0.6); /* Darker background on selection */
+}
+
+/* Active or clicked entry style */
+#entry:active {
+color: #a0e0d2; /* Light teal text on click */
+background-color: rgba(53, 119, 119, 0.7); /* Slightly lighter background for active */
+}
+
+/* Focused entry style */
+#entry:focus {
+color: #a0e0d2; /* Light teal text when focused */
+background-color: rgba(53, 119, 119, 0.5); /* Focused background color */
+}
+
+/* Hover effect (if supported) */
+#entry:hover {
+color: #a0e0d2; /* Light teal text on hover */
+background-color: rgba(53, 119, 119, 0.5); /* Slightly lighter background for hover */
+}
