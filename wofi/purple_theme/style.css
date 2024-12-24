@@ -1,0 +1,75 @@
+/* Purple-Pink-Blue Theme for Wofi with Focus, Active, and Selected States */
+
+/* Window */
+window {
+    border: 2px solid #3b1a3b; /* Darker purple border for contrast */
+    background-color: rgba(45, 23, 51, 0.9); /* Dark purple background */
+}
+
+/* Input box */
+#input {
+color: #e0a0d2; /* Soft light pink text */
+border: 2px solid #3b1a3b; /* Darker purple border to match the theme */
+background-color: rgba(61, 33, 61, 0.6); /* Muted dark purple background */
+font-size: 18px;
+}
+
+/* Outer box margins */
+#outer-box {
+margin: 10px;
+}
+
+/* Scroll area - Hide scrollbars and allow scrolling */
+#scroll {
+margin: 5px 0px;
+font-size: 16px;
+color: #e0a0d2; /* Light pink color for scroll text */
+overflow: auto; /* Allow scrolling when needed, but no visible scrollbar */
+-ms-overflow-style: none;  /* For IE and Edge */
+scrollbar-width: none; /* Firefox-specific for hiding scrollbars */
+}
+
+/* For webkit-based browsers (Chrome, Safari) */
+#scroll::-webkit-scrollbar {
+display: none; /* Hide scrollbars */
+}
+
+/* Scroll labels */
+#scroll label {
+margin: 2px 0px;
+color: #e0a0d2; /* Light pink labels for consistency */
+}
+
+/* Entry (default state) */
+#entry {
+color: #e0a0d2; /* Light pink text by default */
+background-color: rgba(61, 33, 61, 0.3); /* Light purple background color */
+cursor: pointer; /* Ensure the cursor is a pointer for clickable entries */
+transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+/* Selected entry style */
+#entry:selected {
+color: #3b1a3b; /* Dark purple text when selected */
+background-color: rgba(88, 44, 88, 0.6); /* Darker purple background on selection */
+}
+
+/* Active or clicked entry style */
+#entry:active {
+color: #e0a0d2; /* Light pink text on click */
+background-color: rgba(119, 53, 119, 0.7); /* Slightly lighter purple background for active */
+}
+
+/* Focused entry style */
+#entry:focus {
+color: #e0a0d2; /* Light pink text when focused */
+background-color: rgba(119, 53, 119, 0.5); /* Focused purple background color */
+}
+
+/* Hover effect (cursor highlighting) */
+#entry:hover,
+#entry:focus {
+color: #e0a0d2; /* Light pink text on hover and focus */
+background-color: rgba(119, 53, 119, 0.5); /* Slightly lighter purple background for hover and focus */
+cursor: pointer; /* Change the cursor to a pointer on hover */
+}

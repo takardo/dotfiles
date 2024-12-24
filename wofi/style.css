@@ -1,0 +1,98 @@
+window {
+    font-family: "DejaVu Sans", "Font Awesome 5 Free";
+    margin: 0px;
+    border: 2px solid rgb(188, 123, 231); /* Border around the entire window */
+    background-color: rgb(10, 20, 40); /* Background color */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#input {
+margin: 8px;
+border: none; /* No border for the input field */
+color: rgb(229, 186, 245); /* Text color */
+background-color: rgb(10, 20, 40); /* Background color */
+padding: 8px;
+border-radius: 6px;
+transition: background-color 0.2s, color 0.2s;
+}
+
+#input:focus {
+background-color: rgb(84, 38, 128); /* Highlight color */
+color: #ffffff;
+outline: none;
+}
+
+#inner-box,
+#outer-box {
+margin: 8px;
+border: none;
+background-color: transparent;
+padding: 8px;
+}
+
+#scroll {
+margin: 0px;
+border: none;
+scrollbar-width: thin;
+scrollbar-color: rgb(84, 38, 128) rgb(10, 20, 40); /* Adjusted scrollbar color */
+}
+
+#scroll::-webkit-scrollbar {
+width: 6px;
+}
+
+#scroll::-webkit-scrollbar-thumb {
+background-color: rgb(84, 38, 128); /* Scrollbar thumb color */
+border-radius: 10px;
+}
+
+#text {
+margin: 8px;
+border: none;
+color: rgb(229, 186, 245); /* Text color */
+font-size: 14px;
+line-height: 1.6;
+}
+
+/* Increase emoji size */
+.emoji {
+    font-size: 48px; /* Adjust the size of the emoji */
+    display: inline-block;
+    width: 48px; /* Adjust width if needed */
+    height: 48px; /* Adjust height if needed */
+    margin: 10px;
+}
+
+/* Hide the text descriptions but keep them for searching */
+.emoji-description {
+    visibility: hidden; /* Hides the description but keeps it in the DOM */
+    position: absolute; /* Prevents the description from affecting layout */
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#entry {
+margin: 8px;
+border: none; /* No border for the entry field */
+padding: 6px;
+color: rgb(229, 186, 245); /* Text color */
+background-color: rgb(10, 20, 40); /* Background color */
+border-radius: 5px;
+transition: background-color 0.2s, color 0.2s;
+}
+
+#entry:focus {
+background-color: rgb(84, 38, 128); /* Highlight color */
+color: #ffffff;
+outline: none;
+}
+
+#entry:selected {
+background-color: rgb(84, 38, 128); /* Highlight selected entry */
+color: #ffffff;
+border-radius: 6px;
+border: none;
+}
