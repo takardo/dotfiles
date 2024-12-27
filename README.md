@@ -1,6 +1,5 @@
 # 🌟 My Hyprland Dotfiles
 
-Welcome to my personalized Hyprland configuration! 🖥️  
 
 Vesktop Theme - catppuccin mocha
 
