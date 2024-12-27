@@ -2,7 +2,7 @@
 
 Welcome to my personalized Hyprland configuration! 🖥️  
 
-Vesktop Theme - noctis-viola.theme
+Vesktop Theme - catppuccin mocha
 
 Kitty Theme - Base2Tone Lavender Dark
 
