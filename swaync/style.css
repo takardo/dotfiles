@@ -1,14 +1,14 @@
-@define-color cc-bg rgba(30, 20, 50, 0.9); /* Control Center background - dark purple */
-@define-color noti-border-color rgba(200, 200, 255, 0.2); /* Subtle light border */
-@define-color noti-bg rgba(50, 30, 70, 0.85); /* Notification background - deep purple */
-@define-color noti-bg-opaque rgba(50, 30, 70, 1.0); /* Solid deep purple */
-@define-color noti-bg-darker rgba(40, 20, 50, 0.85); /* Darker purple background */
-@define-color noti-bg-hover rgba(70, 40, 100, 0.95); /* Hover background - brighter purple */
-@define-color noti-bg-hover-opaque rgba(70, 40, 100, 1.0); /* Solid hover purple */
-@define-color noti-bg-focus rgba(80, 50, 120, 0.8); /* Focus background - vibrant purple */
+@define-color cc-bg rgba(36, 31, 49, 0.9); /* Control Center background - dark purple */
+@define-color noti-border-color rgba(183, 112, 199, 0.2); /* Subtle light border */
+@define-color noti-bg rgba(36, 31, 49, 0.9); /* Dimming notification background - dark purple */
+@define-color noti-bg-opaque rgba(36, 31, 49, 1.0); /* Solid dimmed purple */
+@define-color noti-bg-darker rgba(36, 31, 49, 0.85); /* Darker purple background */
+@define-color noti-bg-hover rgba(183, 112, 199, 0.95); /* Hover background - soft pinkish-purple */
+@define-color noti-bg-hover-opaque rgba(183, 112, 199, 1.0); /* Solid hover pinkish-purple */
+@define-color noti-bg-focus rgba(171, 151, 231, 0.8); /* Focus background - lavender */
 @define-color noti-close-bg rgba(255, 80, 80, 0.15); /* Close button background - soft red */
 @define-color noti-close-bg-hover rgba(255, 80, 80, 0.3); /* Hover close button background */
-@define-color text-color rgba(240, 240, 255, 0.9); /* Main text color - soft white */
+@define-color text-color rgba(171, 151, 231, 0.9); /* Main text color - soft pink */
 @define-color text-color-disabled rgba(150, 150, 170, 1.0); /* Disabled text - muted gray */
 @define-color bg-selected rgba(100, 170, 170, 0.8); /* Selected background - teal highlight */
 @define-color mpris-album-art-overlay rgba(0, 0, 0, 0.6); /* Dark overlay */
@@ -52,7 +52,7 @@
   border-radius: 12px;
   border: 1px solid @noti-border-color;
   padding: 0;
-  background: @noti-bg;
+  background: @noti-bg; /* Dimmed notification background */
 }
 
 .notification-row .notification-background .notification .notification-action, .notification-row .notification-background .notification .notification-default-action {
@@ -61,7 +61,7 @@
   box-shadow: none;
   background: transparent;
   border: none;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
   transition: background 0.15s ease-in-out;
 }
 
@@ -98,19 +98,19 @@
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
   font-size: 16px;
   font-weight: bold;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
   font-size: 16px;
   font-weight: bold;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
   margin-right: 30px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
   font-size: 15px;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content progressbar {
@@ -129,13 +129,13 @@
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-entry {
   background: @noti-bg-darker;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button {
   background: @noti-bg;
   border: 1px solid @noti-border-color;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button:hover {
@@ -145,7 +145,7 @@
 /* Control Center */
 .control-center {
   background: @cc-bg;
-  color: @text-color;
+  color: @text-color; /* Soft pink text */
   border-radius: 12px;
 }
 
