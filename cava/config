@@ -22,9 +22,9 @@
 
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
-; bars = 0
-; bar_width = 2
-; bar_spacing = 1
+ bars = 0
+ bar_width = 3
+ bar_spacing = 1
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
 
@@ -231,16 +231,16 @@
 # You can define as many as 8 different colors. They range from bottom to top of screen
 gradient = 1
 gradient_count = 10
-gradient_color_1 = '#5a1e7e'  # Dark purple (bottom)
-gradient_color_2 = '#7a1f8e'  # Deep purple
-gradient_color_3 = '#9a2a9e'  # Rich purple
-gradient_color_4 = '#b740b0'  # Strong purple transitioning to light purple
-gradient_color_5 = '#d36fb6'  # Light purple
-gradient_color_6 = '#e39dc1'  # Very light purple
-gradient_color_7 = '#f2b4d1'  # Soft pinkish purple
-gradient_color_8 = '#f9c1d8'  # Light pink
-gradient_color_9 = '#fdd0e3'  # Pastel pink
-gradient_color_10 = '#ffdbf0' # Very light soft pink (top)
+gradient_color_1 = '#b4befe'  # Dark purple (bottom)
+gradient_color_2 = '#89b4fa'  # Deep purple
+gradient_color_3 = '#74c7ec'  # Rich purple
+gradient_color_4 = '#89dceb'  # Strong purple transitioning to light purple
+gradient_color_5 = '#94e2d5'  # Light purple
+gradient_color_6 = '#a6e3a1'  # Very light purple
+gradient_color_7 = '#f9e2af'  # Soft pinkish purple
+gradient_color_8 = '#fab387'  # Light pink
+gradient_color_9 = '#eba0ac'  # Pastel pink
+gradient_color_10 = '#f38ba8' # Very light soft pink (top)
 
 
 
