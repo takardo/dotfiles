@@ -1,0 +1,128 @@
+/* General styling for all elements */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Source Sans Pro", "FontAwesome 6 Free";
+    font-size: 19px;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
+}
+
+/* Waybar overall styling */
+window#waybar,
+window#waybar.solo {
+    color: rgb(171, 151, 231); /* Text and icon color */
+    background-color: transparent; /* Transparent Waybar background */
+    border-bottom: none; /* Remove border for transparency */
+}
+
+/* General module styling */
+#custom-calc,
+#workspaces,
+#custom-scratchpad,
+#mode,
+#battery,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#pulseaudio,
+#idle_inhibitor,
+#temperature,
+#custom-layout,
+#backlight,
+#clock,
+#custom-zypper,
+#custom-notification,
+#custom-firefox,
+#custom-wlogout,
+#custom-hyprlock,
+#tray,
+#window,
+#custom-dolphin,
+#custom-waypaper,
+#custom-hyprpicker {
+margin: 2px 8px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46); /* Dark blue background */
+border: 2px solid rgb(183, 112, 199); /* Default border color */
+border-radius: 8px; /* Rounded corners */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect for modules */
+#custom-calc:hover,
+#workspaces:hover,
+#custom-scratchpad:hover,
+#mode:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#temperature:hover,
+#custom-layout:hover,
+#backlight:hover,
+#clock:hover,
+#custom-zypper:hover,
+#custom-notification:hover,
+#custom-firefox:hover,
+#custom-wlogout:hover,
+#custom-hyprlock:hover,
+#tray:hover,
+#window:hover,
+#custom-dolphin:hover,
+#custom-waypaper:hover,
+#custom-hyprpicker:hover {
+background-color: rgba(218, 112, 214, 0.3); /* Light purple background on hover */
+border-color: rgb(138, 43, 226); /* Updated border on hover */
+}
+
+/* Specific module customizations */
+
+/* Workspaces */
+#workspaces button {
+padding: 0 5px;
+color: rgb(171, 151, 231); /* Text and icon color */
+transition: background-color 0.3s, border-color 0.3s;
+}
+
+#workspaces button:hover {
+background-color: rgba(218, 112, 214, 0.3); /* Light purple background on hover */
+border-color: rgb(138, 43, 226); /* Updated border on hover */
+}
+
+#workspaces button.focused,
+#workspaces button.visible {
+color: rgba(126, 204, 155, 1); /* Focused and visible workspace color */
+}
+
+#workspaces button.urgent {
+color: rgba(33, 164, 223, 1); /* Urgent workspace color */
+}
+
+/* Battery states */
+#battery.warning {
+color: rgba(255, 210, 4, 1); /* Warning battery color */
+}
+
+#battery.critical {
+color: rgba(238, 46, 36, 1); /* Critical battery color */
+}
+
+#battery.charging {
+color: rgba(217, 216, 216, 1); /* Charging battery color */
+}
+
+/* Bluetooth states */
+#bluetooth.disabled,
+#bluetooth.off {
+color: rgba(128, 128, 128, 1); /* Disabled/off color */
+}
+
+#bluetooth.connected {
+color: rgba(115, 186, 37, 1); /* Connected color */
+}
