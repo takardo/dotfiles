@@ -4,7 +4,7 @@ box-shadow: none;
 }
 
 window {
-	background-color: rgba(23, 23, 23, 0.8); /* Slightly darker, semi-transparent */
+	background-color: rgba(17, 17, 27, 1); /* Main background color with semi-transparency */
 }
 
 button {
@@ -12,7 +12,7 @@ button {
 	border-color: rgba(188, 123, 231, 1); /* Purple border */
 	text-decoration-color: #FFFFFF;
 	color: #FFFFFF;
-	background-color: rgba(33, 33, 52, 0.9); /* Darker blue-purple base */
+	background-color: rgba(33, 33, 52, 0.8); /* Darker blue-purple base */
 	border-style: solid;
 	border-width: 2px;
 	background-repeat: no-repeat;
