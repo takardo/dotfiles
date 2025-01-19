@@ -13,12 +13,11 @@ Icon Theme - Amy Dark Icons
 
 Kvantum Theme - Infinity Kvantum
 
-![App Screenshot](assets/2024-12-21-162629_hyprshot.png)
-![App Screenshot](assets/2024-12-21-163022_hyprshot.png)
-![App Screenshot](assets/2024-12-21-163220_hyprshot.png)
-![App Screenshot](assets/2024-12-21-163221_hyprshot.png)
-![App Screenshot](assets/2024-12-21-163311_hyprshot.png)
-![App Screenshot](assets/2024-12-21-172407_hyprshot.png)
-![App Screenshot](assets/2024-12-22-131646_hyprshot.png)
-![App Screenshot](assets/2024-12-24-032956_hyprshot.png)
-![App Screenshot](assets/2024-12-21-163834_hyprshot.png)
+![App Screenshot](assets/1.png)
+![App Screenshot](assets/2.png)
+![App Screenshot](assets/3.png)
+![App Screenshot](assets/4.png)
+![App Screenshot](assets/5.png)
+![App Screenshot](assets/1noti.png)
+![App Screenshot](assets/6.png)
+![App Screenshot](assets/7.png)
