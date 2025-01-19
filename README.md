@@ -1,4 +1,4 @@
-# 🌟 My Hyprland Dotfiles
+# 🌟 My Hyprland Dotfiles 🌟
 
 Vesktop Theme - catppuccin mocha
 
