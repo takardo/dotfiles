@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# https://unix.stackexchange.com/a/213471
-
 T='gYw'   # The test text
 
 echo -e "\n                 40m     41m     42m     43m\
