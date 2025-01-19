@@ -1,16 +1,16 @@
-# 🌟 <span style="color: #FFB6C1;">My Hyprland Dotfiles</span> 🌟
+# 🌟 My Hyprland Dotfiles 🌟
 
-<span style="color: #FFB6C1;">Vesktop Theme</span> - catppuccin mocha
+Vesktop Theme - catppuccin mocha
 
-<span style="color: #FFB6C1;">Kitty Theme</span> - Base2Tone Lavender Dark
+Kitty Theme - Base2Tone Lavender Dark
 
-<span style="color: #FFB6C1;">Firefox Theme</span> - Custom theme catppuccin mocha palette 
+Firefox Theme - Custom theme catppuccin mocha palette 
 
-<span style="color: #FFB6C1;">Icon Theme</span> - Amy Dark Icons
+Icon Theme - Amy Dark Icons
 
-<span style="color: #FFB6C1;">Kvantum Theme</span> - Infinity Kvantum
+Kvantum Theme - Infinity Kvantum
 
-<span style="color: #FFB6C1;">Reduce window opacity</span> 32%
+Reduce window opacity 32%
 
 
 ![App Screenshot](.config/assets/1.png)
