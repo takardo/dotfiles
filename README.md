@@ -1,17 +1,11 @@
 # 🌟 My Hyprland Dotfiles
 
-
 Vesktop Theme - catppuccin mocha
-
 Kitty Theme - Base2Tone Lavender Dark
-
-Firefox Theme - Firefox Alpenglow
-
-Firefox Wallpaper here - https://unsplash.com/photos/timelapse-photography-of-pink-vehicle-lights-near-buildings-Ib2e4-Qy9mQ
-
+Firefox Theme - Custom theme catppuccin mocha palette 
 Icon Theme - Amy Dark Icons
-
 Kvantum Theme - Infinity Kvantum
+Reduce window opacity 32%
 
 ![App Screenshot](assets/1.png)
 ![App Screenshot](assets/2.png)
