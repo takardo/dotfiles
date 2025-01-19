@@ -12,8 +12,6 @@ Kvantum Theme - Infinity Kvantum
 
 Reduce window opacity 32%
 
-.config/assets/1.png
-
 ![App Screenshot](.config/assets/1.png)
 ![App Screenshot](.config/assets/2.png)
 ![App Screenshot](.config/assets/3.png)
