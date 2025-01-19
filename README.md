@@ -1,10 +1,15 @@
 # 🌟 My Hyprland Dotfiles
 
 Vesktop Theme - catppuccin mocha
+
 Kitty Theme - Base2Tone Lavender Dark
+
 Firefox Theme - Custom theme catppuccin mocha palette 
+
 Icon Theme - Amy Dark Icons
+
 Kvantum Theme - Infinity Kvantum
+
 Reduce window opacity 32%
 
 ![App Screenshot](assets/1.png)
