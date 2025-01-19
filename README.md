@@ -20,3 +20,4 @@ Reduce window opacity 32%
 ![App Screenshot](assets/1noti.png)
 ![App Screenshot](assets/6.png)
 ![App Screenshot](assets/7.png)
+![App Screenshot](2024-12-21-163834_hyprshot.png)
