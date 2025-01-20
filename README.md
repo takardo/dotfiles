@@ -20,5 +20,5 @@ Reduce window opacity 32%
 ![App Screenshot](.config/assets/9.png)
 ![App Screenshot](.config/assets/1noti.png)
 ![App Screenshot](.config/assets/6.png)
-![App Screenshot](.config/assets/7.png)
+![App Screenshot](.config/assets/em.png)
 ![App Screenshot](.config/assets/2024-12-21-163834_hyprshot.png)
