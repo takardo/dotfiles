@@ -1,10 +1,11 @@
 {
     "output": "DP-1",
     "layer": "top",
-    "height": 36,
+    "height": 41,
     "modules-left": [
         "hyprland/workspaces",
-        "custom/scratchpad",
+        "network",
+      //"custom/scratchpad",
         "custom/waypaper",
         "custom/firefox",
         "custom/dolphin",
@@ -16,16 +17,17 @@
         "hyprland/window"
     ],
     "modules-right": [
-        "network",
+        "custom/notification",
+        "custom/hyprlock",
+        "custom/wlogout",
         "bluetooth",
         "cpu",
         "memory",
+        "temperature",
         "pulseaudio",
         "clock",
-        "custom/notification",
-        "custom/hyprlock",
-        "custom/wlogout"
-    ],
+
+        ],
     "hyprland/workspaces": {
         "all-outputs": false,
         "disable-scroll": true,
@@ -40,7 +42,7 @@
             "default": ""
         },
         "persistent-workspaces": {
-            "*": [1, 2, 3, 4, 5]
+            "*": [1, 2, 3, 4]
         }
     },
     "hyprland/window": {
@@ -99,10 +101,13 @@
     "memory": {
         "format": "{}% "
     },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+   "temperature": {
+	   "interval": 1,
+	// "thermal-zone": 2,
+	   "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+	// "critical-threshold": 80,
+	// "format-critical": "{temperatureC}°C ",
+	"format": "{temperatureC}°C "
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -122,12 +127,12 @@
     "battery#bat2": {
         "bat": "BAT2"
     },
-    "network": {
-        "format-wifi": "",
-        "format-ethernet": "",
-        "format-linked": "",
-        "format-disconnected": "⚠",
-        "format-alt": "{ifname} {essid} ({signalStrength}%)"
+         "network": {
+         "format-wifi": " {ifname} ({signalStrength}%)",
+         "format-ethernet": "({bandwidthDownBytes}↓ {bandwidthUpBytes}↑)",
+         "format-linked": "",
+         "format-disconnected": "⚠",
+         "format-alt": " {ifname} ({bandwidthDownBytes}↓ {bandwidthUpBytes}↑)"
     },
     "bluetooth": {
         "format": "",
@@ -144,9 +149,7 @@
         "on-click-right": "exec alacritty -e sh -c 'bluetoothctl'"
     },
     "pulseaudio": {
-        "format": "{icon}",
-        "format-alt": "{volume} {icon}",
-        "format-alt-click": "click-right",
+        "format": "{volume} {icon}",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
