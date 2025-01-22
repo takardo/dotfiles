@@ -18,9 +18,8 @@ window#waybar.solo {
 }
 
 /* General module styling */
-#custom-calc,
+
 #workspaces,
-#custom-scratchpad,
 #mode,
 #battery,
 #cpu,
@@ -30,20 +29,22 @@ window#waybar.solo {
 #pulseaudio,
 #idle_inhibitor,
 #temperature,
-#custom-layout,
 #backlight,
 #clock,
+#tray,
+#window,
+#custom-layout,
+#custom-scratchpad,
 #custom-zypper,
+#custom-calc,
 #custom-notification,
 #custom-firefox,
 #custom-wlogout,
 #custom-hyprlock,
-#tray,
-#window,
 #custom-dolphin,
 #custom-waypaper,
 #custom-hyprpicker {
-margin: 2px 8px;
+margin: 2px 6px;
 padding: 4px 8px;
 background-color: rgb(30, 30, 46); /* Dark blue background */
 border: 2px solid rgb(183, 112, 199); /* Default border color */
@@ -52,9 +53,18 @@ transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
 }
 
 /* Hover effect for modules */
-#custom-calc:hover,
-#workspaces:hover,
+#custom-layout:hover,
 #custom-scratchpad:hover,
+#custom-zypper:hover,
+#custom-calc:hover,
+#custom-notification:hover,
+#custom-firefox:hover,
+#custom-wlogout:hover,
+#custom-hyprlock:hover,
+#custom-dolphin:hover,
+#custom-waypaper:hover,
+#custom-hyprpicker:hover,
+#workspaces:hover,
 #mode:hover,
 #battery:hover,
 #cpu:hover,
@@ -64,19 +74,10 @@ transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
 #pulseaudio:hover,
 #idle_inhibitor:hover,
 #temperature:hover,
-#custom-layout:hover,
 #backlight:hover,
 #clock:hover,
-#custom-zypper:hover,
-#custom-notification:hover,
-#custom-firefox:hover,
-#custom-wlogout:hover,
-#custom-hyprlock:hover,
 #tray:hover,
-#window:hover,
-#custom-dolphin:hover,
-#custom-waypaper:hover,
-#custom-hyprpicker:hover {
+#window:hover {
 background-color: rgba(218, 112, 214, 0.3); /* Light purple background on hover */
 border-color: rgb(138, 43, 226); /* Updated border on hover */
 }
