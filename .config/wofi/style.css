@@ -1,8 +1,8 @@
 window {
     font-family: "DejaVu Sans", "Font Awesome 5 Free";
     margin: 0px;
-    border: 2px solid rgb(188, 123, 231); /* Border around the entire window */
-    background-color: rgb(10, 20, 40); /* Background color */
+    border: 2px solid rgb(179, 129, 245); /* Mauve - Border around the entire window */
+    background-color: rgb(24, 24, 37); /* Base - Background color */
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
@@ -10,16 +10,16 @@ window {
 #input {
 margin: 8px;
 border: none; /* No border for the input field */
-color: rgb(229, 186, 245); /* Text color */
-background-color: rgb(10, 20, 40); /* Background color */
+color: rgb(252, 177, 228); /* Text - Text color */
+background-color: rgb(24, 24, 37); /* Base - Background color */
 padding: 8px;
 border-radius: 6px;
 transition: background-color 0.2s, color 0.2s;
 }
 
 #input:focus {
-background-color: rgb(84, 38, 128); /* Highlight color */
-color: #ffffff;
+background-color: rgb(108, 72, 215); /* Sapphire - Highlight color */
+color: rgb(248, 250, 252); /* Text - White text */
 outline: none;
 }
 
@@ -35,7 +35,12 @@ padding: 8px;
 margin: 0px;
 border: none;
 scrollbar-width: thin;
-scrollbar-color: rgb(84, 38, 128) rgb(10, 20, 40); /* Adjusted scrollbar color */
+scrollbar-color: rgb(24, 24, 37); /* Sapphire and Base - Scrollbar color */
+display: flex; /* Use flexbox for layout */
+flex-wrap: wrap; /* Allow wrapping of items */
+justify-content: center; /* Center align items */
+gap: 12px; /* Space between items */
+padding: 8px;
 }
 
 #scroll::-webkit-scrollbar {
@@ -43,14 +48,14 @@ width: 6px;
 }
 
 #scroll::-webkit-scrollbar-thumb {
-background-color: rgb(84, 38, 128); /* Scrollbar thumb color */
+background-color: rgb(24, 24, 37); /* Sapphire - Scrollbar thumb color */
 border-radius: 10px;
 }
 
 #text {
 margin: 8px;
 border: none;
-color: rgb(229, 186, 245); /* Text color */
+color: rgb(252, 177, 228); /* Text - Text color */
 font-size: 14px;
 line-height: 1.6;
 }
@@ -78,21 +83,22 @@ line-height: 1.6;
 margin: 8px;
 border: none; /* No border for the entry field */
 padding: 6px;
-color: rgb(229, 186, 245); /* Text color */
-background-color: rgb(10, 20, 40); /* Background color */
+color: rgb(56, 56, 84); /* Text - Text color */
+background-color: rgb(24, 24, 37); /* Base - Background color */
 border-radius: 5px;
 transition: background-color 0.2s, color 0.2s;
 }
 
 #entry:focus {
-background-color: rgb(84, 38, 128); /* Highlight color */
-color: #ffffff;
+background-color: rgb(56, 56, 84); /* Sapphire - Highlight color */
+color: rgb(248, 250, 252); /* Text - White text */
+border-radius: 6px;
 outline: none;
 }
 
 #entry:selected {
-background-color: rgb(84, 38, 128); /* Highlight selected entry */
-color: #ffffff;
+background-color: rgb(56, 56, 84); /* Sapphire - Highlight selected entry */
+color: rgb(78, 28, 145); /* Text - White text */
 border-radius: 6px;
 border: none;
 }
