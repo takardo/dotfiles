@@ -18,13 +18,21 @@ window#waybar.solo {
 }
 
 /* General module styling */
+#network{
+min-width: 190px;
+margin: 2px 6px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46); /* Dark blue background */
+border: 2px solid rgb(183, 112, 199); /* Default border color */
+border-radius: 8px; /* Rounded corners */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
 
 #workspaces,
 #mode,
 #battery,
 #cpu,
 #memory,
-#network,
 #bluetooth,
 #pulseaudio,
 #idle_inhibitor,
