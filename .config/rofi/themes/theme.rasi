@@ -1,9 +1,9 @@
 * {
-    main-bg:            #0A1428ff; /* Dark blue background */
-    main-fg:            #f8f8f2ff; /* Light text color */
-    main-br:            #bc7be7ff; /* Soft purple for borders */
-    select-bg:          #4e1c91ff; /* Dark purple for selection background */
-    select-fg:          #f8f8f2ff; /* Light text for selection */
+    main-bg:            #181825ff; /* Mantle */
+    main-fg:            #cdd6f4ff; /* Text */
+    main-br:            #bc7be7ff; /* Lavender for borders */
+    select-bg:          #4d4e80ff; /* Surface2 for selection background */
+    select-fg:          #cdd6f4ff; /* Text for selection */
     separatorcolor:     transparent;
-    border-color:       #bc7be7ff; /* Purple border color */
+    border-color:       #b4befe; /* Lavender border color */
 }
