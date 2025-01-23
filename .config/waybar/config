@@ -5,13 +5,13 @@
     "modules-left": [
         "hyprland/workspaces",
         "network",
+        "tray",
       //"custom/scratchpad",
         "custom/waypaper",
         "custom/firefox",
         "custom/dolphin",
         "custom/hyprpicker",
         "custom/calc",
-        "tray"
     ],
     "modules-center": [
         "hyprland/window"
@@ -72,8 +72,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": " {:%b %d %Y %I:%M %p}",
-        "format-alt": "{:%a %d %b w:%V %H:%M}",
+        "format": " {:%a %b %d %I:%M%p}",
+        "format-alt": " {:%a %b %d w:%V %I:%M%p}",
         "tooltip-format": "<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
         "calendar": {
             "mode-mon-col": 4,
@@ -96,7 +96,8 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "exec gnome-system-monitor"
     },
     "memory": {
         "format": "{}% "
@@ -128,6 +129,7 @@
         "bat": "BAT2"
     },
          "network": {
+         "interval":1,
          "format-wifi": " {ifname} ({signalStrength}%)",
          "format-ethernet": "({bandwidthDownBytes}↓ {bandwidthUpBytes}↑)",
          "format-linked": "",
