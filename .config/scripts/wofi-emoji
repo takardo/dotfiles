@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-EMOJI="$(sed '1,/^### DATA ###$/d' $0 | wofi -p "emoji" --show dmenu -i | cut -d ' ' -f 1 | tr -d '\n')"
+EMOJI="$(sed '1,/^### DATA ###$/d' $0 | wofi -p "emoji" --show dmenu -i --width 400px --height 400px | awk '{print $1}' | tr -d '\n')"
 wtype "$EMOJI"; wl-copy "$EMOJI"
 exit
 ### DATA ###
