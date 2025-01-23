@@ -131,7 +131,7 @@
          "network": {
          "interval":1,
          "format-wifi": " {ifname} ({signalStrength}%)",
-         "format-ethernet": "({bandwidthDownBytes}↓ {bandwidthUpBytes}↑)",
+         "format-ethernet": "(↓{bandwidthDownBytes} ↑{bandwidthUpBytes})",
          "format-linked": "",
          "format-disconnected": "⚠",
          "format-alt": " {ifname} ({bandwidthDownBytes}↓ {bandwidthUpBytes}↑)"
