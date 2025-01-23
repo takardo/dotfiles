@@ -3,7 +3,7 @@ window {
     margin: 0px;
     border: 2px solid rgb(179, 129, 245); /* Mauve - Border around the entire window */
     background-color: rgb(24, 24, 37); /* Base - Background color */
-    border-radius: 12px;
+    border-radius: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
