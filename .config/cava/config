@@ -231,25 +231,16 @@
 # You can define as many as 8 different colors. They range from bottom to top of screen
 gradient = 1
 gradient_count = 10
-gradient_color_1 = '#b4befe'  # Dark purple (bottom)
-gradient_color_2 = '#89b4fa'  # Deep purple
-gradient_color_3 = '#74c7ec'  # Rich purple
-gradient_color_4 = '#89dceb'  # Strong purple transitioning to light purple
-gradient_color_5 = '#94e2d5'  # Light purple
-gradient_color_6 = '#a6e3a1'  # Very light purple
-gradient_color_7 = '#f9e2af'  # Soft pinkish purple
-gradient_color_8 = '#fab387'  # Light pink
-gradient_color_9 = '#eba0ac'  # Pastel pink
-gradient_color_10 = '#f38ba8' # Very light soft pink (top)
-
-
-
-
-
-
-
-
-
+gradient_count = 9
+gradient_color_1 = '#89b4fa'  # Deep purple
+gradient_color_2 = '#74c7ec'  # Rich purple
+gradient_color_3 = '#89dceb'  # Strong purple transitioning to light purple
+gradient_color_4 = '#94e2d5'  # Light purple
+gradient_color_5 = '#a6e3a1'  # Very light purple
+gradient_color_6 = '#f9e2af'  # Soft pinkish purple
+gradient_color_7 = '#fab387'  # Light pink
+gradient_color_8 = '#eba0ac'  # Pastel pink
+gradient_color_9 = '#f38ba8' # Very light soft pink (top)
 
 
 [smoothing]
