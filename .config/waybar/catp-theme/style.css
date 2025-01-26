@@ -358,7 +358,7 @@ color: rgb(171, 151, 231); /* Text and icon color */
 transition: background-color 0.3s, border-color 0.3s;
 }
 #workspaces button:hover {
-background-color: rgba(171, 233, 179, 0.3); /* Light purple background on hover */
+background-color: rgba(171, 151, 231, 0.3); /* Light purple background on hover */
 border-color: rgb(171, 233, 179); /* Updated border on hover */
 }
 #workspaces button.focused,
