@@ -1,1 +1,0 @@
-sh sww.sh
