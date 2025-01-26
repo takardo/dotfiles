@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Take a screenshot
+hyprlock

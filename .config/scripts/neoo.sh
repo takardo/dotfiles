@@ -1,1 +1,1 @@
-neofetch --config /home/tumbleweed/fetchconfigs/iname.conf --image_size 30% --block_width 5
+neofetch --config /home/tumbleweed/fetch-configs/iname.conf --image_size 30% --block_width 5
