@@ -1,0 +1,24 @@
+[CompactMode]
+PreviewSize=64
+
+[General]
+RememberOpenedTabs=false
+ShowFullPathInTitlebar=true
+ShowSpaceInfo=false
+ShowZoomSlider=false
+Version=202
+ViewPropsTimestamp=2024,12,20,13,0,22.068
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PreviewSettings]
+Plugins=quithumbnail,blenderthumbnail,gsthumbnail,mobithumbnail,rawthumbnail,ffmpegthumbs,audiothumbnail,comicbookthumbnail,directorythumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,opendocumentthumbnail,svgthumbnail,windowsexethumbnail,windowsimagethumbnail,fontthumbnail,gdk-pixbuf-thumbnailer
+
+[UiSettings]
+ColorScheme=Breeze Dark Pink
