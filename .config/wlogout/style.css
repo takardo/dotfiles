@@ -1,0 +1,94 @@
+* {
+background: transparent;
+background-image: none;
+box-shadow: none;
+}
+window {
+	background-color: rgba(17, 17, 27, 1); /* Main background color with semi-transparency */
+}
+button {
+	border-radius: 40px;
+	border-style: solid;
+	background-color: rgba(33, 33, 52, 0.8); /* Darker blue-purple base */
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth hover effect */
+}
+button:focus,
+button:active,
+button:hover {
+	outline-style: none;
+}
+#lock {
+background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/home/tumbleweed/dotfiles/config/wlogout/lock.png"));
+border-color: rgba(171, 233, 179, 1); /* Light green border */
+border-width: 10px;
+color: rgba(171, 233, 179, 1); /* Match icon color to border */
+}
+#lock:hover,
+#lock:focus,
+#lock:active {
+background-color: rgba(171, 233, 179, 0.3); /* Dimmed light green on hover */
+color: rgba(171, 233, 179, 1); /* Keep icon color the same */
+}
+#logout {
+background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/home/tumbleweed/dotfiles/config/wlogout/logout.png"));
+border-color: rgba(180, 132, 191, 1); /* Purple border */
+border-width: 10px;
+color: rgba(180, 132, 191, 1); /* Match icon color to border */
+}
+#logout:hover,
+#logout:focus,
+#logout:active {
+background-color: rgba(180, 132, 191, 0.3); /* Dimmed purple on hover */
+color: rgba(180, 132, 191, 1); /* Keep icon color the same */
+}
+#suspend {
+background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/home/tumbleweed/dotfiles/config/wlogout/suspend.png"));
+border-color: rgba(248, 189, 150, 1); /* Peach border */
+border-width: 10px;
+color: rgba(248, 189, 150, 1); /* Match icon color to border */
+}
+#suspend:hover,
+#suspend:focus,
+#suspend:active {
+background-color: rgba(248, 189, 150, 0.3); /* Dimmed peach on hover */
+color: rgba(248, 189, 150, 1); /* Keep icon color the same */
+}
+#hibernate {
+background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/home/tumbleweed/dotfiles/config/wlogout/hibernate.png"));
+border-color: rgba(249, 226, 175, 1); /* Light yellow border */
+border-width: 10px;
+color: rgba(249, 226, 175, 1); /* Match icon color to border */
+}
+#hibernate:hover,
+#hibernate:focus,
+#hibernate:active {
+background-color: rgba(249, 226, 175, 0.3); /* Dimmed light yellow on hover */
+color: rgba(249, 226, 175, 1); /* Keep icon color the same */
+}
+#shutdown {
+background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/home/tumbleweed/dotfiles/config/wlogout/shutdown.png"));
+border-color: rgba(242, 143, 173, 1); /* Pink border */
+border-width: 10px;
+color: rgba(242, 143, 173, 1); /* Match icon color to border */
+}
+#shutdown:hover,
+#shutdown:focus,
+#shutdown:active {
+background-color: rgba(242, 143, 173, 0.3); /* Dimmed pink on hover */
+color: rgba(242, 143, 173, 1); /* Keep icon color the same */
+}
+#reboot {
+background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/home/tumbleweed/dotfiles/config/wlogout/reboot.png"));
+border-color: rgba(150, 205, 251, 1); /* Light blue border */
+border-width: 10px;
+color: rgba(150, 205, 251, 1); /* Match icon color to border */
+}
+#reboot:hover,
+#reboot:focus,
+#reboot:active {
+background-color: rgba(150, 205, 251, 0.3); /* Dimmed light blue on hover */
+color: rgba(150, 205, 251, 1); /* Keep icon color the same */
+}
