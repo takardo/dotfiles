@@ -1,5 +1,0 @@
-color 02
-mount c: /home/tumbleweed/DOS
-imgmount d: /home/tumbleweed/DosHDD.DosHDD.IMG
-c:
-dir *.bat /w
