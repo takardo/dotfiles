@@ -1,0 +1,515 @@
+
+    * {
+        border: none;
+        border-radius: 8;
+        font-family: "pixelon", "FontAwesome 6 Free";
+        font-size: 18px;
+        box-shadow: none;
+        text-shadow: none;
+        transition-duration: 0s;
+    }
+
+
+    tooltip {
+        background-color: rgb(30, 30, 46);
+        border: 2px solid rgb(221, 182, 242);
+        border-radius: 8px;
+        color: rgb(221, 182, 242);
+        font-size: 17px;
+        padding: 6px;
+    }
+
+    tooltip label {
+        color: rgb(221, 182, 242);
+        font-weight: normal;
+    }
+
+    window#waybar,
+window#waybar.solo {
+    background-color: transparent;
+    border-bottom: none;
+
+}
+
+#backlight {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#backlight:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#battery {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#battery:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#battery.warning {
+color: rgba(255, 210, 4, 1);
+
+}
+
+#battery.critical {
+color: rgba(238, 46, 36, 1);
+
+}
+
+#battery.charging {
+color: rgba(217, 216, 216, 1);
+
+}
+
+#custom-wlogout {
+color: rgb(221, 182, 242);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(221, 182, 242);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+}
+
+#custom-wlogout:hover {
+background-color: rgba(221, 182, 242, 0.3);
+border-color: rgb(221, 182, 242);
+
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+color: rgba(128, 128, 128, 1);
+
+}
+
+#bluetooth.connected {
+color: rgba(150, 205, 251, 1);
+
+}
+
+#clock {
+color: rgb(221, 182, 242);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(221, 182, 242);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#clock:hover {
+background-color: rgba(221, 182, 242, 0.3);
+border-color: rgb(221, 182, 242);
+
+}
+
+#cpu {
+color: rgb(248, 189, 150);
+min-width: 53px;
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(248, 189, 150);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#cpu:hover {
+background-color: rgba(248, 189, 150, 0.3);
+border-color: rgb(248, 189, 150);
+
+}
+
+#custom-calc {
+color: rgb(150, 205, 251);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(150, 205, 251);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-calc:hover {
+background-color: rgba(150, 205, 251, 0.3);
+border-color: rgb(150, 205, 251);
+}
+
+#custom-dolphin {
+color: rgb(242, 143, 173);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(242, 143, 173);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-dolphin:hover {
+background-color: rgba(242, 143, 173, 0.3);
+border-color: rgb(242, 143, 173);
+
+}
+
+#custom-emo {
+color: rgb(242, 143, 173);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(242, 143, 173);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-emo:hover {
+background-color: rgba(242, 143, 173, 0.3);
+border-color: rgb(242, 143, 173);
+}
+
+#custom-firefox {
+color: rgb(248, 189, 150);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(248, 189, 150);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-firefox:hover {
+background-color: rgba(248, 189, 150, 0.3);
+border-color: rgb(248, 189, 150);
+
+}
+
+#custom-hyprlock {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(171, 233, 179);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-hyprlock:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#custom-hyprpicker {
+color: rgb(221, 182, 242);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(221, 182, 242);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-hyprpicker:hover {
+background-color: rgba(221, 182, 242, 0.3);
+border-color: rgb(221, 182, 242);
+
+}
+
+#custom-layout {
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-layout:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#custom-notification {
+color: rgb(249, 226, 175);
+min-width: 24px;
+margin: 2px 4px;
+padding: 4px 4px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(249, 226, 175);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-notification:hover {
+background-color: rgba(249, 226, 175, 0.3);
+border-color: rgb(249, 226, 175);
+
+}
+
+#custom-scratchpad {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(171, 233, 179);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-scratchpad:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+}
+
+#custom-waypaper {
+color: rgb(249, 226, 175);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(249, 226, 175);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-waypaper:hover {
+background-color: rgba(249, 226, 175, 0.3);
+border-color: rgb(249, 226, 175);
+
+}
+
+#bluetooth {
+color: rgb(150, 205, 251);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(150, 205, 251);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#bluetooth:hover {
+background-color: rgba(150, 205, 251, 0.3);
+border-color: rgb(150, 205, 251);
+
+}
+
+#custom-zypper {
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#custom-zypper:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#idle_inhibitor {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#idle_inhibitor:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#memory {
+color: rgb(249, 226, 175);
+min-width: 53px;
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(249, 226, 175);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#memory:hover {
+background-color: rgba(249, 226, 175, 0.3);
+border-color: rgb(249, 226, 175);
+
+}
+
+#mode {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#mode:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#network {
+color: rgb(150, 205, 251);
+min-width: 225px;
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(150, 205, 251);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#network:hover {
+background-color: rgba(150, 205, 251, 0.3);
+border-color: rgb(150, 205, 251);
+
+}
+
+#pulseaudio {
+color: rgb(150, 205, 251);
+min-width: 55px;
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(150, 205, 251);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#pulseaudio:hover {
+background-color: rgba(150, 205, 251, 0.3);
+border-color: rgb(150, 205, 251);
+
+}
+
+#temperature {
+color: rgb(171, 233, 179);
+min-width: 55px;
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(171, 233, 179);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#temperature:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#tray {
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(171, 233, 179);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#tray:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#window {
+color: rgb(171, 233, 179);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(171, 233, 179);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+#window:hover {
+background-color: rgba(171, 233, 179, 0.3);
+border-color: rgb(171, 233, 179);
+
+}
+
+#workspaces {
+min-width: 199px;
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(221, 182, 242);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+
+
+}
+
+#workspaces button {
+padding: 0 5px;
+color: rgb(221, 182, 242);
+
+}
+
+#workspaces button:hover {
+background-color: rgba(150, 205, 251, 0.3);
+}
+
+#workspaces button.focused,
+#workspaces button.visible {
+color: rgba(126, 204, 155, 1);
+
+}
+
+#workspaces button.urgent {
+color: rgba(33, 164, 223, 1);
+
+}

@@ -1,0 +1,112 @@
+
+
+		* {
+		background: none;
+		background-image: none;
+		box-shadow: none;
+		}
+
+
+	window {
+		background-color: rgba(17, 17, 27, 0.1);
+			}
+	button {
+		border-radius: 55px;
+		border-style: solid;
+		background-color: rgba(33, 33, 52, 1);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 25%;
+		font-size: 35px;
+		transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+		}
+
+	button:focus,
+	button:active,
+	button:hover {
+		outline-style: none;
+		}
+
+		#lock {
+		background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("//home/tumbleweed/dotfiles/.config/wlogout/catp/lock.png"));
+		border-color: rgba(171, 233, 179, 0.6);
+		border-width: 10px;
+		color: rgba(171, 233, 179, 1);
+		}
+
+		#lock:hover,
+		#lock:focus,
+		#lock:active {
+		background-color: rgba(171, 233, 179, 0.6);
+		color: rgba(171, 233, 179, 1);
+		}
+
+		#logout {
+		background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/home/tumbleweed/dotfiles/.config/wlogout/catp/logout.png"));
+		border-color: rgba(180, 132, 191, 0.6);
+		border-width: 10px;
+		color: rgba(180, 132, 191, 1);
+		}
+		#logout:hover,
+		#logout:focus,
+		#logout:active {
+		background-color: rgba(180, 132, 191, 0.6);
+		color: rgba(180, 132, 191, 1);
+		}
+
+		#suspend {
+		background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/home/tumbleweed/dotfiles/.config/wlogout/catp/suspend.png"));
+		border-color: rgba(248, 189, 150, 0.6 );
+		border-width: 10px;
+		color: rgba(248, 189, 150, 1);
+		}
+
+		#suspend:hover,
+		#suspend:focus,
+		#suspend:active {
+		background-color: rgba(248, 189, 150, 0.6);
+		color: rgba(248, 189, 150, 1);
+		}
+
+		#hibernate {
+		background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("//home/tumbleweed/dotfiles/.config/wlogout/catp/hibernate.png"));
+		border-color: rgba(249, 226, 175, 0.6);
+		border-width: 10px;
+		color: rgba(249, 226, 175, 1);
+		}
+		#hibernate:hover,
+		#hibernate:focus,
+		#hibernate:active {
+		background-color: rgba(249, 226, 175, 0.6);
+		color: rgba(249, 226, 175, 1);
+		}
+		#shutdown {
+		background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/home/tumbleweed/dotfiles/.config/wlogout/catp/shutdown.png"));
+		border-color: rgba(242, 143, 173, 0.6);
+		border-width: 10px;
+		color: rgba(242, 143, 173, 1);
+		}
+
+		#shutdown:hover,
+		#shutdown:focus,
+		#shutdown:active {
+		background-color: rgba(242, 143, 173, 0.6);
+		color: rgba(242, 143, 173, 1);
+		}
+
+		#reboot {
+		background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/home/tumbleweed/dotfiles/.config/wlogout/catp/reboot.png"));
+		border-color: rgba(150, 205, 251, 0.6);
+		border-width: 10px;
+		color: rgba(150, 205, 251, 1);
+		}
+
+		#reboot:hover,
+		#reboot:focus,
+		#reboot:active {
+		background-color: rgba(150, 205, 251, 0.5);
+		color: rgba(150, 205, 251, 1);
+		}
+
+
+

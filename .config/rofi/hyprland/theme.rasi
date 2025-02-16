@@ -1,0 +1,10 @@
+
+    * {
+    main-bg:            #181825ff; /* Mantle */
+    main-fg:            #194d3dff; /* Text */
+    main-br:            #5b8f86; /* Soft teal for borders */
+    select-bg:          #4d4e80ff; /* Surface2 for selection background */
+    select-fg:          #e2f1f1; /* Light text color for selection */
+    separatorcolor:     transparent;
+}
+

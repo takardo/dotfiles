@@ -1,0 +1,149 @@
+[color]
+    # Color settings for terminal or SDL
+    # Use predefined colors or hex codes for background and foreground
+        ; background = default
+        ; foreground = default
+        ; background = '#111111'
+        ; foreground = '#33ffff'
+
+    # Gradient color settings (only hex values supported)
+        gradient = 1
+        gradient_count = 7
+        gradient_color_1 = '#89dceb'
+        gradient_color_2 = '#94e2d5'
+        gradient_color_3 = '#a6e3a1'
+        gradient_color_4 = '#f9e2af'
+        gradient_color_5 = '#fab387'
+        gradient_color_6 = '#eba0ac'
+        gradient_color_7 = '#f38ba8'
+
+[general]
+    # Smoothing mode (DEPRECATED as of 0.6.0)
+        ; mode = normal
+
+    # Accepts only non-negative values.
+        ; framerate = 60
+
+    # Autosens and overshoot settings (DEPRECATED as of 0.6.0)
+        ; autosens = 1
+        ; overshoot = 20
+
+    # Manual sensitivity in %. Initial value for autosens if enabled.
+         sensitivity = 100
+
+    # Bars configuration
+        bars = 52
+        bar_width = 2
+        bar_spacing = 1
+        # bar_height is only used for output in "noritake" format
+        ; bar_height = 32
+
+    # Frequency bandwidth for visualizer (DEPRECATED as of 0.6.0)
+        ; lower_cutoff_freq = 50
+        ; higher_cutoff_freq = 10000
+
+    # Sleep timer for idle state (0 = disable)
+        ; sleep_timer = 0
+
+[input]
+    # Audio capturing method. Options: fifo, portaudio, pipewire, alsa, pulse, sndio, oss, jack, shmem
+    # Multiple input methods supported, commented examples for each.
+        ; method = pulse
+        ; source = auto
+
+        ; method = pipewire
+        ; source = auto
+
+        ; method = alsa
+        ; source = hw:Loopback,1
+
+        ; method = fifo
+        ; source = /tmp/mpd.fifo
+
+        ; method = shmem
+        ; source = /squeezelite-AA:BB:CC:DD:EE:FF
+
+        ; method = portaudio
+        ; source = auto
+
+        ; method = sndio
+        ; source = default
+
+        ; method = oss
+        ; source = /dev/dsp
+
+        ; method = jack
+        ; source = default
+
+        # Optional input settings (for specific methods)
+        ; sample_rate = 44100
+        ; sample_bits = 16
+        ; channels = 2
+        ; autoconnect = 2
+
+[output]
+    # Output method options: ncurses, noncurses, raw, noritake, sdl, sdl_glsl
+        ; method = noncurses
+
+    # Visualization orientation and channel settings
+        ; orientation = bottom
+        ; channels = stereo
+        ; mono_option = average
+        ; reverse = 0
+
+    # Raw output configuration
+        ; raw_target = /dev/stdout
+        ; data_format = binary
+        ; bit_format = 16bit
+        ; ascii_max_range = 1000
+        ; bar_delimiter = 59
+        ; frame_delimiter = 10
+
+    # SDL window settings
+        ; sdl_width = 1000
+        ; sdl_height = 500
+        ; sdl_x = -1
+        ; sdl_y = -1
+        ; sdl_full_screen = 0
+
+    # Labeling on bars for x-axis (only ncurses and noncurses)
+        ; xaxis = none
+
+    # Synchronized sync to reduce flickering in certain terminal emulators
+        ; synchronized_sync = 0
+
+    # Shaders for sdl_glsl (path: $HOME/.config/cava/shaders)
+        ; vertex_shader = pass_through.vert
+        ; fragment_shader = bar_spectrum.frag
+
+    # Continuous rendering for glsl output mode
+        ; continuous_rendering = 0
+
+    # Disable console blank (screen saver) in tty (Not supported on FreeBSD)
+        ; disable_blanking = 0
+
+    # Idle bar and waveform settings
+        ; show_idle_bar_heads = 1
+        ; waveform = 0
+
+[smoothing]
+    # Integral smoothing (DEPRECATED as of 0.8.0)
+        ; integral = 77
+
+    # Monstercat smoothing (waves) settings
+        ; monstercat = 0
+        ; waves = 0
+
+    # Gravity percentage for "drop off" effect (DEPRECATED as of 0.8.0)
+        ; gravity = 100
+
+    # Noise reduction settings
+        ; noise_reduction = 77
+
+[eq]
+    # Equalizer settings for specific frequencies
+        ; 1 = 1 # bass
+        ; 2 = 1
+        ; 3 = 1 # midtone
+        ; 4 = 1
+        ; 5 = 1 # treble

@@ -1,0 +1,41 @@
+    [CompactMode]
+        PreviewSize=64
+        UseSystemFont=false
+        ViewFont=ComicShannsMono Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+    [DetailsMode]
+        PreviewSize=16
+        UseSystemFont=false
+        ViewFont=ComicShannsMono Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+    [General]
+        GlobalViewProps=false
+        RememberOpenedTabs=false
+        ShowFullPathInTitlebar=true
+        ShowSpaceInfo=false
+        ShowZoomSlider=false
+        Version=202
+        ViewPropsTimestamp=2024,12,20,13,0,22.068
+
+    [IconsMode]
+        PreviewSize=80
+        UseSystemFont=false
+        ViewFont=ComicShannsMono Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+    [KFileDialog Settings]
+        Places Icons Auto-resize=false
+        Places Icons Static Size=22
+
+    [MainWindow]
+        MenuBar=Disabled
+        ToolBarsMovable=Disabled
+
+    [PreviewSettings]
+        Plugins=audiothumbnail,blenderthumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,quithumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer
+
+    [Search]
+        What=Content
+
+    [UiSettings]
+        ColorScheme=Breeze Dark Pink
+    #

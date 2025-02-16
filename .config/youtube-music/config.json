@@ -1,0 +1,59 @@
+{
+	"window-size": {
+		"width": 444,
+		"height": 679
+	},
+	"window-maximized": false,
+	"window-position": {
+		"x": 8,
+		"y": 10
+	},
+	"url": "https://music.youtube.com/watch?v=11BlEYtj53Q&list=RDAMPLPLZWG2snKLTHUrq3rRXcFf1cjBstCQUS0g&index=0",
+	"options": {
+		"tray": true,
+		"appVisible": true,
+		"autoUpdates": true,
+		"alwaysOnTop": false,
+		"hideMenu": true,
+		"hideMenuWarned": true,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": false,
+		"removeUpgradeButton": false,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": true,
+		"autoResetAppCache": false,
+		"resumeOnStart": false,
+		"likeButtons": "",
+		"proxy": "",
+		"startingPage": "",
+		"overrideUserAgent": false,
+		"usePodcastParticipantAsArtist": false,
+		"themes": [
+			"/home/tumbleweed/Youtube Music/mocha.css"
+		]
+	},
+	"plugins": {
+		"notifications": {},
+		"video-toggle": {
+			"mode": "custom"
+		},
+		"precise-volume": {
+			"enabled": true,
+			"steps": 1,
+			"arrowsShortcut": true,
+			"globalShortcuts": {
+				"volumeUp": "",
+				"volumeDown": ""
+			},
+			"savedVolume": 7
+		},
+		"discord": {
+			"listenAlong": true
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.7.2"
+		}
+	}
+}
