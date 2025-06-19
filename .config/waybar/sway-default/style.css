@@ -1,0 +1,105 @@
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Source Sans Pro", "FontAwesome 6 Free";
+    font-size:     17px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+}
+
+window#waybar {
+    color: rgba(53, 185, 171, 1);
+    background-color: rgba(23, 63, 79, 0.4);
+    border-bottom: 2px solid rgba(53, 185, 171, 0.4);
+}
+
+window#waybar.solo {
+    color: rgba(53, 185, 171, 1);
+}
+
+#workspaces {
+    margin: 0 5px;
+}
+
+#custom-scratchpad {
+    margin: 0px	3px;
+    padding: 0px 3px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: rgba(53, 185, 171, 1);
+}
+
+#workspaces button.focused {
+    color: rgba(115, 186, 37, 1);
+}
+
+#workspaces button.visible {
+    color: rgba(115, 186, 37, 1);
+}
+
+#workspaces button.urgent {
+    color: rgba(33, 164, 223, 1);
+}
+
+
+#mode,
+#battery, 
+#cpu,
+#tray,
+#custom-waypaper,
+#custom-zypper,
+#custom-hyprpicker,
+#custom-calc,
+#custom-dolphin,
+#custom-firefox,
+#memory, 
+#bluetooth,
+#pulseaudio, 
+#idle_inhibitor, 
+#temperature,
+#custom-hyprlock,
+#custom-layout,
+#custom-notification,
+#backlight {
+    margin: 0px 5px 0px 5px;
+    padding: 0px 3px;
+/*    min-width: 30px;*/
+}
+
+#clock,
+#custom-wlogout{
+    margin: 0px 5px 0px 5px;
+    padding: 0px 3px;
+}
+
+#battery.warning {
+   color: rgba(255, 210, 4, 1);
+}
+
+#battery.critical {
+    color: rgba(238, 46, 36, 1);
+}
+
+#battery.charging {
+    color: rgba(217, 216, 216, 1);
+}
+
+#bluetooth.disabled {
+    color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.off {
+    color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.connected {
+    color: rgba(115, 186, 37, 1);
+}
+#network{
+margin: 0px 5px 0px 5px;
+padding: 0px 3px;
+min-width: 140px
+}

@@ -1,0 +1,295 @@
+
+
+    {
+
+    "output": "DP-1",
+    "margin": 0,
+    "layer": "top",
+    "height": 44,
+    "modules-left": [
+        "hyprland/workspaces",
+        "network",
+        "custom/scratchpad",
+        "custom/waypaper",
+        "custom/firefox",
+        "custom/dolphin",
+        "custom/calc",
+        "tray"
+
+    ],
+
+    "modules-center": [
+        "hyprland/window"
+
+    ],
+
+    "modules-right": [
+        "custom/notification",
+        "custom/hyprlock",
+        "bluetooth",
+        "custom/wlogout",
+        "custom/emo",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "clock"
+
+    ],
+
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "active": "",
+            "default": ""
+            },
+
+    "persistent-workspaces": {
+        "*": [1, 2, 3, 4]
+        }
+
+    },
+
+    "hyprland/window": {
+        "max-length": 80,
+        "tooltip": false
+
+    },
+
+    "custom/layout": {
+        "exec": "hyprctl devices | jq -r '.keyboards[] | select(.active == true) | .layoutName'"
+
+    },
+
+    "custom/zypper": {
+        "format": "{} ",
+        "interval": 3600,
+        "exec": "zypper lu | grep 'v |' | wc -l; echo 'packages to update'",
+        "exec-if": "exit 0",
+        "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; pkill -SIGRTMIN+8 waybar'",
+        "signal": 8
+
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+        "activated": "",
+        "deactivated": ""
+        }
+    },
+
+    "tray": {
+        "spacing": 10
+
+    },
+
+    "clock": {
+        "on-click": "exec kclock",
+        "format": " {:%a %b %d w:%V %I:%M%p}",
+        "tooltip-format": "<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
+        "calendar": {
+            "mode-mon-col": 4,
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+            "months": "<span color='#35b9ab'><b>{}</b></span>",
+            "weeks": "<span color='#73ba25'><b>{}</b></span>",
+            "weekdays": "<span color='#21a4df'><b>{}</b></span>",
+            "today": "<span color='#21a4df'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "interval": 10
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+        "on-click": "exec gnome-system-monitor",
+        "interval": 1
+    },
+
+    "memory": {
+        "format": "{}% ",
+        "interval": 1
+
+    },
+
+   "temperature":{
+        "tooltip-format": "{temperatureC}°C ",
+        "interval": 1,
+        "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input"],
+        "format": "{temperatureC}°C ",
+
+    },
+
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+
+    },
+
+    "battery": {
+
+    "states": {
+        "warning": "30",
+        "critical": "15"
+        },
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
+        "format-alt": "{capacity}% {time}",
+        "format-icons": ["", "", "", "", ""]
+
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": " {ifname} ({signalStrength}%)",
+        "format-ethernet": "(↓{bandwidthDownBytes} ↑{bandwidthUpBytes})",
+        "format-linked": "",
+        "format-disconnected": "⚠",
+        "format-alt": " {ifname} ({bandwidthDownBytes}↓ {bandwidthUpBytes}↑)"
+
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-off": "",
+        "format-connected": " {num_connections}",
+            "tooltip-format": "{controller_address} {status}\n\n{num_connections} connected",
+            "tooltip-format-disabled": "{status}",
+            "tooltip-format-connected": "{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+            "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+            "on-click": "bluetooth toggle; pkill -SIGRTMIN+8 waybar",
+            "on-click-right": "exec ghostty -e sh -c 'bluetoothctl'"
+
+    },
+
+    "pulseaudio": {
+        "format": "{volume} {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+                "scroll-step": 10,
+                "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+                "on-click-right": "pavucontrol"
+
+    },
+
+    "custom/scratchpad": {
+        "tooltip": true,
+        "tooltip-format": "Scratchpad",
+        "format": "",
+        "return-type": "json",
+        "interval": 3,
+        "on-click": "hyprctl dispatch togglespecialworkspace magic",
+        "on-click-right": "hyprctl dispatch movetoworkspace special:magic"
+
+    },
+
+    "custom/notification": {
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "dnd-none": " "
+        },
+                "return-type": "json",
+                "exec-if": "which swaync-client || which notify-send",
+                "exec": "swaync-client -swb || notify-send 'Test Notification'",
+                "on-click": "swaync-client -t -sw",
+                "on-click-right": "swaync-client -d -sw",
+                "escape": true
+    },
+
+    "custom/hyprlock": {
+        "tooltip": true,
+        "tooltip-format": "LockScreen",
+        "format": "",
+        "on-click": "exec ~/dotfiles/.config/scripts/hyprlock.sh"
+
+    },
+
+    "custom/wlogout": {
+        "tooltip": true,
+        "tooltip-format": "LogoutMenu",
+        "format": "",
+        "on-click": "exec wlogout -C /home/tumbleweed/dotfiles/.config/wlogout/catp/style.css -l /home/tumbleweed/dotfiles/.config/wlogout/catp/layout --protocol layer-shell"
+
+    },
+
+    "custom/firefox": {
+        "tooltip": true,
+        "tooltip-format": "WebBrowser",
+        "on-click": "exec firefox",
+        "format": ""
+
+    },
+
+    "custom/waypaper": {
+        "tooltip": true,
+        "tooltip-format": "Wallpaper",
+        "on-click": "exec waypaper --random & disown",
+        "on-click-right": "exec waypaper",
+        "format": ""
+
+    },
+
+    "custom/dolphin": {
+        "tooltip": true,
+        "tooltip-format": "FileExplorer",
+        "format": "",
+        "on-click": "exec dolphin",
+        "on-click-right": "exec /home/tumbleweed/dotfiles/.config/scripts/rofi.sh"
+    },
+
+    "custom/hyprpicker": {
+        "tooltip": true,
+        "tooltip-format": "ColorPicker",
+        "format": "",
+        "on-click": "exec hyprpicker -f rgb -a"
+
+    },
+
+    "custom/calc": {
+        "tooltip": true,
+        "tooltip-format": "Galculator",
+        "format": "",
+        "on-click": "exec galculator"
+
+    },
+
+    "custom/emo": {
+        "tooltip": true,
+        "tooltip-format": "Emotes",
+        "format": "",
+        "on-click": "exec rofi -modi drun -config /home/tumbleweed/dotfiles/.config/rofi/hyprland/emoji/config.rasi -show emoji",
+        "on-click-right": "exec rofi -show drun -config /home/tumbleweed/dotfiles/.config/rofi/hyprland/config.rasi"
+    },
+
+
+
+    }
+

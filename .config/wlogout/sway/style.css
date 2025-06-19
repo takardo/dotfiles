@@ -1,0 +1,50 @@
+* {
+background-image: none;
+box-shadow: none;
+}
+
+window {
+	background-color: rgba(05, 26, 31, 0.8);
+}
+
+button {
+	border-radius: 25;
+	border-color: #CEFFD4;
+	text-decoration-color: #FFFFFF;
+	color: #FFFFFF;
+	background-color: #1E1E1E;
+	border-style: solid;
+	border-width: 5px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button:focus, button:active, button:hover {
+	background-color: #1A6461;
+	outline-style: none;
+}
+
+#lock {
+background-image: image(url("/home/tumbleweed/dotfiles/.config/wlogout/sway/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+background-image: image(url("/home/tumbleweed/dotfiles/.config/wlogout/sway/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+background-image: image(url("/home/tumbleweed/dotfiles/.config/wlogout/sway/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+background-image: image(url("/home/tumbleweed/dotfiles/.config/wlogout/sway/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+background-image: image(url("/home/tumbleweed/dotfiles/.config/wlogout/sway/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+background-image: image(url("/home/tumbleweed/dotfiles/.config/wlogout/sway/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}

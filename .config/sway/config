@@ -1,0 +1,358 @@
+
+# Read `man 5 sway` for a complete reference.
+
+### OUTPUT ###
+
+output DP-1 mode 1920x1080 position 1080 0 scale 1
+output DP-2 mode 1920x1080 position 0 -515 scale 1 transform 90
+output HDMI-A-1 mode 1920x1080 position 3000 0 scale 1
+
+
+
+# Set wallpaper
+output * bg /home/tumbleweed/wallpapers/saved/teal.png fill
+#exec swaybg --color 052e2d -m fill
+
+seat seat0 xcursor_theme Bibata-Modern-Ice 24
+
+# openSUSE theme
+default_border pixel 4
+gaps inner 10
+client.focused #6da741 #173f4f #73ba25
+client.unfocused #00a489 #173f4f #35b9ab
+client.focused_inactive #6da741 #00a489 #173f4f
+
+### STARTUP EXECUTABLES ###
+
+set $wob wob --config /home/tumbleweed/dotfiles/.config/sway/wob.ini
+
+exec --no-startup-id /usr/bin/wob -c /home/tumbleweed/dotfiles/.config/sway/wob/wob.ini
+
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+
+exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/style.css
+
+exec swaymsg seat seat0 cursor set 2040 1080
+
+exec_always {
+    systemctl --user import-environment
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+    gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    test -e $SWAYSOCK.wob || mkfifo $SWAYSOCK.wob
+    tail -f $SWAYSOCK.wob | $wob
+    swaync --style /home/tumbleweed/dotfiles/.config/swaync/sway/style.css --config /home/tumbleweed/dotfiles/.config/swaync/sway/config.json
+}
+
+
+### VARIABLES ###
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Set terminal
+set $term ghostty 
+
+# Set menu
+set $menu rofi -show drun -config /home/tumbleweed/dotfiles/.config/rofi/sway/config.rasi
+
+### KEY BINDINGS ###
+
+# Basics:
+
+    # Start a terminal
+    bindsym $mod+Return exec $$term
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Moving around:
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# Workspaces:
+
+
+    workspace 1 output DP-4
+    workspace 2 output DP-4
+    workspace 3 output DP-4
+    workspace 4 output DP-4
+    workspace 5 output DP-4
+    workspace 6 output DP-4
+    workspace 7 output DP-4
+    workspace 8 output DP-4
+    workspace 9 output HDMI-A-2
+    workspace 10 output HDMI-A-2
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+
+
+# Layout stuff:
+
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+# Scratchpad:
+
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+# Resizing containers:
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+# Enable common options for generic touchpads
+input "type:touchpad" {
+  tap enabled
+  natural_scroll enabled
+  middle_emulation enabled
+}
+
+# Cycle through workspaces
+bindsym $mod+tab workspace next_on_output
+bindsym $mod+Shift+tab workspace prev_on_output
+
+# Lockscreen configuration
+set $screenlock 'swaylock --config /etc/swaylock/openSUSEway.conf'
+# Idle configuration
+exec swayidle -w \
+         timeout 900 $screenlock \
+         timeout 960 'swaymsg "output * power off"' \
+              resume 'swaymsg "output * power on"' \
+         before-sleep $screenlock
+
+bindsym --to-code {
+    $mod+b splith
+    $mod+v splitv
+}
+
+# Media keys
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessDown exec brightnessctl -q set 5%- && ( echo $((`brightnessctl get` * 100 / `brightnessctl m`)) > $SWAYSOCK.wob )
+bindsym XF86MonBrightnessUp exec brightnessctl -q set +5% && ( echo $((`brightnessctl get` * 100 / `brightnessctl m`)) > $SWAYSOCK.wob )
+
+bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -ui 2 && dc -e "[`pamixer --get-volume`]sM 100d `pamixer --get-volume`<Mp" > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec pamixer --allow-boost -ud 2 && dc -e "[`pamixer --get-volume`]sM 100d `pamixer --get-volume`<Mp" > $SWAYSOCK.wob
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob )
+
+# Media player controls
+bindsym --no-warn XF86AudioPlay exec playerctl play-pause
+bindsym --no-warn XF86AudioNext exec playerctl next
+bindsym --no-warn XF86AudioPrev exec playerctl previous
+
+### SCREENSHOTS ###
+## Area selection shortcuts
+set $selected_window swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp
+set $focused_window swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"'
+set $focused_output swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name'
+## Screenshot commands
+### Full
+set $screenshot_full grim
+set $screenshot_full_clipboard grim - | wl-copy
+### Selected window
+set $screenshot_selected_window $selected_window | grim -g-
+set $screenshot_selected_window_clipboard $selected_window | grim -g- - | wl-copy
+### Selected area
+set $screenshot_selected_area slurp | grim -g-
+set $screenshot_selected_area_clipboard slurp | grim -g- - | wl-copy
+### Focused window
+set $screenshot_focused_window $focused_window | grim -g-
+set $screenshot_focused_window_clipboard $focused_window | grim -g- - | wl-copy
+### Focused output
+set $screenshot_focused_output grim -o $($focused_output)
+set $screenshot_focused_output_clipboard grim -o $($focused_output) - | wl-copy
+
+# ROFI EMOJI
+bindsym $mod+shift+d exec rofi -show emoji -config /home/tumbleweed/dotfiles/.config/rofi/sway/emoji/config.rasi
+
+## Screenshot mode menu
+set $screenshot "Screenshot: (f) full, (s) select window, (a) select area, (w) focused window, (o) focused output [Ctrl+ saves to clipboard]"
+mode $screenshot {
+    # Full
+    bindsym f exec $screenshot_full; mode "default"
+    bindsym Ctrl+f exec $screenshot_full_clipboard; mode "default"
+    # Selected window
+    bindsym s exec $screenshot_selected_window; mode "default"
+    bindsym Ctrl+s exec $screenshot_selected_window_clipboard; mode "default"
+    # Selected area
+    bindsym a exec $screenshot_selected_area; mode "default"
+    bindsym Ctrl+a exec $screenshot_selected_area_clipboard; mode "default"
+    # Focused window
+    bindsym w exec $screenshot_focused_window; mode "default"
+    bindsym Ctrl+w exec $screenshot_focused_window_clipboard; mode "default"
+    # Focused output
+    bindsym o exec $screenshot_focused_output; mode "default"
+    bindsym Ctrl+o exec $screenshot_focused_output_clipboard; mode "default"
+
+    # Exit screenshot mode menu
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+bindsym $mod+Print mode $screenshot
+
+# System mode menu
+set $mode_system "What to do? (l) lock, (e) logout, (r) reboot, (s) suspend, (Shift+s) shutdown"
+mode $mode_system {
+	bindsym l exec $screenlock; mode "default"
+	bindsym e exec swaymsg exit; mode "default"
+	bindsym r exec systemctl reboot; mode "default"
+	bindsym s exec systemctl suspend; mode "default"
+	bindsym Shift+s exec systemctl poweroff; mode "default"
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+unbindsym $mod+Shift+e
+bindsym $mod+Shift+e mode $mode_system
+
+# Toggle notification bar
+set $toggle_notification "swaync-client -t -sw"
+bindsym $mod+Shift+n exec $toggle_notification
+
+# Wayland default floats
+for_window [app_id="(Calendar|Calculator|Power-statistics|Control-center)"] floating enable
+for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="(pavucontrol|psensor)"] floating enable
+for_window [app_id="evolution-alarm-notify"] floating enable
+for_window [app_id="nemo"] floating enable
+for_window [app_id="evolution" title="Compose Message"] floating enable
+for_window [app_id="evolution" title="Re(.*)"] floating enable
+for_window [app_id="evolution" title="Fwd(.*)"] floating enable
+for_window [app_id="mpv"] floating enable
+for_window [app_id="mpv"] resize set 960 540
+for_window [app_id="mpv"] border pixel 0
+for_window [app_id="firefox" title="Pushbullet"] floating enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="waypaper"] floating enable
+for_window [app_id="galculator"] floating enable
+for_window [app_id="kclock"] floating enable
+for_window [app_id="firefox"] floating enable
+for_window [app_id="ghostty"] floating enable
+
+
+# Brave, chrome, chromium
+for_window [title="Picture-in-picture"] floating enable
+
+

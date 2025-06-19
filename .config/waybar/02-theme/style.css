@@ -1,0 +1,137 @@
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Source Sans Pro", "FontAwesome 6 Free";
+    font-size: 19px;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
+}
+
+window#waybar,
+window#waybar.solo {
+    color: rgb(171, 151, 231);
+    background-color: transparent;
+    border-bottom: none;
+}
+
+#network{
+min-width: 190px;
+margin: 2px 6px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46);
+border: 3px solid rgb(180, 132, 191);
+border-radius: 8px;
+transition: background-color 0.3s, border-color 0.3s;
+}
+
+#workspaces,
+#mode,
+#battery,
+#cpu,
+#memory,
+#bluetooth,
+#pulseaudio,
+#idle_inhibitor,
+#temperature,
+#backlight,
+#clock,
+#tray,
+#window,
+#custom-layout,
+#custom-scratchpad,
+#custom-zypper,
+#custom-calc,
+#custom-notification,
+#custom-firefox,
+#custom-wlogout,
+#custom-hyprlock,
+#custom-dolphin,
+#custom-emo,
+#custom-waypaper,
+#custom-hyprpicker {
+margin: 2px 6px;
+padding: 4px 8px;
+background-color: rgb(30, 30, 46); /* Dark blue background */
+border: 3px solid rgb(180, 132, 191); /* Default border color */
+border-radius: 8px; /* Rounded corners */
+transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect for modules */
+#custom-layout:hover,
+#custom-scratchpad:hover,
+#custom-zypper:hover,
+#custom-emo:hover,
+#custom-calc:hover,
+#custom-notification:hover,
+#custom-firefox:hover,
+#custom-wlogout:hover,
+#custom-hyprlock:hover,
+#custom-dolphin:hover,
+#custom-waypaper:hover,
+#custom-hyprpicker:hover,
+#workspaces:hover,
+#mode:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#temperature:hover,
+#backlight:hover,
+#clock:hover,
+#tray:hover,
+#window:hover {
+background-color: rgba(218, 112, 214, 0.3); /* Light purple background on hover */
+border-color: rgb(138, 43, 226); /* Updated border on hover */
+}
+
+/* Specific module customizations */
+
+/* Workspaces */
+#workspaces button {
+padding: 0 5px;
+color: rgb(171, 151, 231); /* Text and icon color */
+transition: background-color 0.3s, border-color 0.3s;
+}
+
+#workspaces button:hover {
+background-color: rgba(218, 112, 214, 0.3); /* Light purple background on hover */
+border-color: rgb(138, 43, 226); /* Updated border on hover */
+}
+
+#workspaces button.focused,
+#workspaces button.visible {
+color: rgba(126, 204, 155, 1); /* Focused and visible workspace color */
+}
+
+#workspaces button.urgent {
+color: rgba(33, 164, 223, 1); /* Urgent workspace color */
+}
+
+/* Battery states */
+#battery.warning {
+color: rgba(255, 210, 4, 1); /* Warning battery color */
+}
+
+#battery.critical {
+color: rgba(238, 46, 36, 1); /* Critical battery color */
+}
+
+#battery.charging {
+color: rgba(217, 216, 216, 1); /* Charging battery color */
+}
+
+/* Bluetooth states */
+#bluetooth.disabled,
+#bluetooth.off {
+color: rgba(128, 128, 128, 1); /* Disabled/off color */
+}
+
+#bluetooth.connected {
+color: rgba(115, 186, 37, 1); /* Connected color */
+}

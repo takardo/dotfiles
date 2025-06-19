@@ -1,0 +1,9 @@
+
+    * {
+    main-bg:            #16161Eff; /* Mantle */
+    main-fg:            #24283Bff; /* Text */
+    main-br:            #24283B; /* Soft teal for borders */
+    select-bg:          #24283B; /* Surface2 for selection background */
+    select-fg:          #24283B; /* Light text color for selection */
+    separatorcolor:     transparent;
+}
