@@ -39,5 +39,9 @@
   <summary>Screenshot 11</summary>
   <img src=".config/assets/hypr10.png" alt="Screenshot 10">
 </details>
+<details>
+  <summary>Screenshot 12</summary>
+  <img src=".config/assets/hypr11.png" alt="Screenshot 10">
+</details>
 
 ![My Image](.config/assets/sway0.png)
