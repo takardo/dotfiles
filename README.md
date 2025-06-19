@@ -1,11 +1,11 @@
-![My Image](.config/assets/hyp1.png)
+![My Image](.config/assets/hypr.png)
 <details>
   <summary>Screenshot 2</summary>
-  <img src=".config/assets/hyp2.png" alt="Screenshot 2">
+  <img src=".config/assets/hypr0.png" alt="Screenshot 2">
 </details>
 <details>
   <summary>Screenshot 3</summary>
-  <img src=".config/assets/hyp3.png" alt="Screenshot 3">
+  <img src=".config/assets/hypr1.png" alt="Screenshot 3">
 </details>
 <details>
   <summary>Screenshot 4</summary>
