@@ -1,0 +1,17 @@
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+input "type:touchpad" {
+  tap enabled
+}
+
+exec "gtkgreet -l -s /etc/greetd/style.css; swaymsg exit"
+
+bindsym Mod4+shift+e exec swaynag \
+	-t warning \
+	-m 'What do you want to do?' \
+	-b 'Poweroff' 'systemctl poweroff' \
+	-b 'Reboot' 'systemctl reboot'
+
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+
+#include /etc/sway/config.d/
