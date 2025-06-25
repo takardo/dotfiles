@@ -1,41 +1,51 @@
-    [CompactMode]
-        PreviewSize=64
-        UseSystemFont=false
-        ViewFont=ComicShannsMono Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+MenuBar=Disabled
 
-    [DetailsMode]
-        PreviewSize=16
-        UseSystemFont=false
-        ViewFont=ComicShannsMono Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+[CompactMode]
+PreviewSize=32
+UseSystemFont=false
+ViewFont=Pixelon,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
-    [General]
-        GlobalViewProps=false
-        RememberOpenedTabs=false
-        ShowFullPathInTitlebar=true
-        ShowSpaceInfo=false
-        ShowZoomSlider=false
-        Version=202
-        ViewPropsTimestamp=2024,12,20,13,0,22.068
+[DetailsMode]
+UseSystemFont=false
+ViewFont=ComicShannsMono Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
-    [IconsMode]
-        PreviewSize=80
-        UseSystemFont=false
-        ViewFont=ComicShannsMono Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+[ExtractDialog]
+2 screens: Window-Maximized=true
 
-    [KFileDialog Settings]
-        Places Icons Auto-resize=false
-        Places Icons Static Size=22
+[General]
+GlobalViewProps=false
+RememberOpenedTabs=false
+ShowFullPathInTitlebar=true
+ShowSpaceInfo=false
+ShowStatusBar=FullWidth
+ShowToolTips=true
+Version=202
+ViewPropsTimestamp=2024,12,20,13,0,22.068
 
-    [MainWindow]
-        MenuBar=Disabled
-        ToolBarsMovable=Disabled
+[IconsMode]
+IconSize=16
+MaximumTextLines=2
+PreviewSize=48
+UseSystemFont=false
+ViewFont=Pixelon,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
-    [PreviewSettings]
-        Plugins=audiothumbnail,blenderthumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,quithumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer
+[InformationPanel]
+dateFormat=ShortFormat
+previewsShown=false
 
-    [Search]
-        What=Content
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
 
-    [UiSettings]
-        ColorScheme=Breeze Dark Pink
-    #
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Enabled
+
+[PreviewSettings]
+Plugins=audiothumbnail,blenderthumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,quithumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer
+
+[Search]
+What=Content
+
+[UiSettings]
+ColorScheme=Breeze-Dark-Pink

@@ -5,24 +5,65 @@
 
 output DP-1 mode 1920x1080 position 1080 0 scale 1
 output DP-2 mode 1920x1080 position 0 -515 scale 1 transform 90
-output HDMI-A-1 mode 1920x1080 position 3000 0 scale 1
+output HDMI-A-1 resolution 640x480 position 3000 180 scale 1
 
+### SET WALLPAPER ###
 
-
-# Set wallpaper
 output * bg /home/tumbleweed/wallpapers/saved/teal.png fill
-#exec swaybg --color 052e2d -m fill
 
 seat seat0 xcursor_theme Bibata-Modern-Ice 24
 
-# openSUSE theme
+### openSUSE THEME ###
+
 default_border pixel 4
 gaps inner 10
-client.focused #6da741 #173f4f #73ba25
-client.unfocused #00a489 #173f4f #35b9ab
-client.focused_inactive #6da741 #00a489 #173f4f
+#client.focused #6da741 #173f4f #73ba25
+#client.unfocused #00a489 #173f4f #35b9ab
+#client.focused_inactive #6da741 #00a489 #173f4f
+
+client.focused          #173D49 #173D49 #ffffff
+client.unfocused        #173D49 #173D49 #ffffff
+client.focused_inactive #173D49 #173D49 #ffffff
+client.urgent           #173D49 #173D49 #ffffff
+
+assign [class="nvtop"] 1
+assign [class="btop"] 1
+assign [class="cava"] 1
+assign [class="tty"] 1
+assign [class="com.github.th_ch.youtube_music"] 1
+
+### MOUSE FOLLOWS FOCUSED WINDOW ###
+
+    focus_follows_mouse always
+
+    mouse_warping container
 
 ### STARTUP EXECUTABLES ###
+
+ exec kitty --title="btop" -e btop &
+ exec kitty --title="nvtop" -e nvtop &
+ exec kitty --title="cava" -e cava &
+ exec kitty --title="tty" -e /home/tumbleweed/dotfiles/.config/scripts/tty.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/swayidle.sh
+
+# exec /home/tumbleweed/dotfiles/.config/scripts/sway-hud.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/resize-sway.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-move-windows.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-cursor.sh
+
+#exec /usr/bin/blueman-manager
+
+exec /home/tumbleweed/dotfiles/.config/scripts/ytmusic.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-mullvad.sh
+
+exec /usr/bin/virt-manager --show-systray
+
+exec nm-applet
 
 set $wob wob --config /home/tumbleweed/dotfiles/.config/sway/wob.ini
 
@@ -36,15 +77,14 @@ exec swaymsg seat seat0 cursor set 2040 1080
 
 exec_always {
     systemctl --user import-environment
-    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-    gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-    gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Breeze-Dark'
+    gsettings set org.gnome.desktop.interface icon-theme 'Amy-Dark-Icons'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     test -e $SWAYSOCK.wob || mkfifo $SWAYSOCK.wob
     tail -f $SWAYSOCK.wob | $wob
     swaync --style /home/tumbleweed/dotfiles/.config/swaync/sway/style.css --config /home/tumbleweed/dotfiles/.config/swaync/sway/config.json
 }
-
 
 ### VARIABLES ###
 
@@ -65,7 +105,7 @@ set $menu rofi -show drun -config /home/tumbleweed/dotfiles/.config/rofi/sway/co
 
 ### KEY BINDINGS ###
 
-# Basics:
+    # Basics:
 
     # Start a terminal
     bindsym $mod+Return exec $$term
@@ -89,13 +129,14 @@ set $menu rofi -show drun -config /home/tumbleweed/dotfiles/.config/rofi/sway/co
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-# Moving around:
+### NAVIGATION ###
 
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
+
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -114,7 +155,6 @@ set $menu rofi -show drun -config /home/tumbleweed/dotfiles/.config/rofi/sway/co
     bindsym $mod+Shift+Right move right
 
 # Workspaces:
-
 
     workspace 1 output DP-4
     workspace 2 output DP-4
@@ -138,6 +178,7 @@ set $menu rofi -show drun -config /home/tumbleweed/dotfiles/.config/rofi/sway/co
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -257,6 +298,7 @@ bindsym --no-warn XF86AudioNext exec playerctl next
 bindsym --no-warn XF86AudioPrev exec playerctl previous
 
 ### SCREENSHOTS ###
+
 ## Area selection shortcuts
 set $selected_window swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp
 set $focused_window swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"'
@@ -340,6 +382,7 @@ for_window [app_id="evolution" title="Fwd(.*)"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="mpv"] resize set 960 540
 for_window [app_id="mpv"] border pixel 0
+# for_window [app_id="firefox"] floating enable
 for_window [app_id="firefox" title="Pushbullet"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
@@ -348,8 +391,13 @@ for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="waypaper"] floating enable
 for_window [app_id="galculator"] floating enable
 for_window [app_id="kclock"] floating enable
-for_window [app_id="firefox"] floating enable
-for_window [app_id="ghostty"] floating enable
+# for_window [app_id="ghostty"] floating enable
+
+for_window [title="nvtop"] floating enable
+for_window [title="btop"] floating enable
+for_window [title="cava"] floating enable
+for_window [title="tty"] floating enable
+for_window [class="com.github.th_ch.youtube_music"] floating enable
 
 
 # Brave, chrome, chromium

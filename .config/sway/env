@@ -14,4 +14,4 @@ NO_AT_BRIDGE=1
 # QT theme for openSUSEway
 # needs qt5ct and adwaita-qt5 packages
 # default config is /etc/xdg/qt5ct/qt5ct.conf
-QT_QPA_PLATFORMTHEME=qt5ct
+#QT_QPA_PLATFORMTHEME=qt5ct

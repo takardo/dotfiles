@@ -5,6 +5,7 @@
     // "width": 1280, // Waybar width
     // "gtk-layer-shell": "false",
     // Choose the order of the modules
+    "output": ["DP-1", "DP-2"],
     "modules-left": ["sway/workspaces", "custom/wlogout", "custom/hyprlock", "battery", "custom/waypaper", "custom/dolphin", "custom/firefox", "custom/calc", "custom/hyprpicker", "custom/zypper", "custom/scratchpad", "network"],
     "modules-center": ["sway/window", "sway/mode"],
     "modules-right": ["tray", "bluetooth", "cpu", "memory", "temperature", "backlight",  "pulseaudio", "custom/layout", "clock", "custom/notification"],
@@ -120,7 +121,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": "  {:%a %d %b w:%V %H:%M:%S}",
+        "format": "  {:%a %d %b w:%V %I:%M:%S %p}",
         "on-click": "exec kclock",
         "tooltip-format": "<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
         "calendar": {
