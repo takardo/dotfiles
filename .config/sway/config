@@ -49,7 +49,7 @@ exec /home/tumbleweed/dotfiles/.config/scripts/swayidle.sh
 
 # exec /home/tumbleweed/dotfiles/.config/scripts/sway-hud.sh
 
-exec /home/tumbleweed/dotfiles/.config/scripts/resize-sway.sh
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-resize-windows.sh
 
 exec /home/tumbleweed/dotfiles/.config/scripts/sway-move-windows.sh
 
@@ -71,7 +71,9 @@ exec --no-startup-id /usr/bin/wob -c /home/tumbleweed/dotfiles/.config/sway/wob/
 
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
-exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/style.css
+exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-1/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-1/style.css
+
+exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-2/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-2/style.css
 
 exec swaymsg seat seat0 cursor set 2040 1080
 
@@ -269,13 +271,13 @@ bindsym $mod+tab workspace next_on_output
 bindsym $mod+Shift+tab workspace prev_on_output
 
 # Lockscreen configuration
-set $screenlock 'swaylock --config /etc/swaylock/openSUSEway.conf'
+#set $screenlock 'swaylock --config /etc/swaylock/openSUSEway.conf'
 # Idle configuration
-exec swayidle -w \
-         timeout 900 $screenlock \
-         timeout 960 'swaymsg "output * power off"' \
-              resume 'swaymsg "output * power on"' \
-         before-sleep $screenlock
+#exec swayidle -w \
+#         timeout 900 $screenlock \
+#         timeout 960 'swaymsg "output * power off"' \
+#              resume 'swaymsg "output * power on"' \
+#         before-sleep $screenlock
 
 bindsym --to-code {
     $mod+b splith

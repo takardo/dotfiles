@@ -41,8 +41,9 @@ swaymsg '[title="btop"] move position 5 433'
 swaymsg '[title="cava"] move position 5 1086'
 
 # Resize windows (with retries)
+resize_window "com.github.th_ch.youtube_music" 432 639
 resize_window "nvtop" 633 638
 resize_window "btop" 1070 729
 resize_window "cava" 1071 260
 resize_window "tty" 1070 230
-resize_window "GigaChad Theme (Phonk House Version) - YouTube Music" 434 640
+
