@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Color codes
+# Color
 GREEN='\033[0;32m'
 RESET='\033[0m'
 
@@ -12,23 +12,24 @@ git push &&
 # Get latest commit hash
 latest_commit=$(git rev-parse HEAD)
 
-# Get highest existing tag like 0.0.x
-latest_tag=$(git tag -l '0.0.*' --sort=-v:refname | head -n1)
+# Get highest existing vX.Y tag number
+latest_tag=$(git tag -l 'v*' --sort=-v:refname | head -n1)
 
-if [[ "$latest_tag" =~ ^0\.0\.([0-9]+)$ ]]; then
-  patch=${BASH_REMATCH[1]}
-  next_patch=$((patch + 1))
+# Extract version and calculate next
+if [[ "$latest_tag" =~ ^v([0-9]+)\.([0-9]+)$ ]]; then
+  major=${BASH_REMATCH[1]}
+  minor=${BASH_REMATCH[2]}
+  next_minor=$((minor + 1))
+  next_tag="v$major.$next_minor"
 else
-  next_patch=1
+  next_tag="v0.1"
 fi
-
-next_tag="0.0.${next_patch}"
 
 # Create and push the tag
 git tag "$next_tag" "$latest_commit"
 git push origin "$next_tag"
 
-# Done message
+# Done
 echo
 echo -e "${GREEN}Git push and tag ${next_tag} complete.${RESET}"
 echo
