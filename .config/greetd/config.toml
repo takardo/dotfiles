@@ -12,7 +12,7 @@ vt = next
 
 # command = "cage -s -- gtkgreet -c Hyprland -s /etc/greetd/style.css"
 
- command = "tuigreet -r --asterisks --asterisks-char X --user-menu -t --power-shutdown /usr/sbin/poweroff --power-reboot /usr/sbin/reboot --power-no-setsid --cmd Hyprland --theme 'border=blue;text=green;prompt=green;time=green;action=green;button=white;container=black;input=green'"
+ command = "tuigreet -r --asterisks --asterisks-char X --user-menu -t --power-shutdown /usr/sbin/poweroff --power-reboot /usr/sbin/reboot --power-no-setsid --cmd /home/tumbleweed/session-launcher.sh --theme 'border=white;text=white;prompt=white;time=white;action=white;button=cyan;container=blue;input=white'"
 
 # command = "wlgreet"
 
