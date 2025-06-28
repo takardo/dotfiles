@@ -17,10 +17,13 @@ fonts=("whimsy" "small" "Fender")  # Assign a figlet font for each session
 term_width=$(tput cols)
 
 center_text() {
-  local text="$1"
-  local padding=$(( (term_width - ${#text}) / 2 ))
+  local raw_text="$1"
+  local text_no_color=$(echo -e "$raw_text" | sed 's/\x1B\[[0-9;]*[mK]//g')
+  local padding=$(( (term_width - ${#text_no_color}) / 2 ))
   (( padding < 0 )) && padding=0
-  printf "%*s%s\n" $padding "" "$text"
+  # Use echo -e here so escape sequences are parsed correctly
+  printf "%*s" $padding ""
+  echo -e "$raw_text"
 }
 
 clear
