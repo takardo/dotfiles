@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This is unused
+
 kitty --title="nvtop" -e nvtop &
 kitty --title="btop" -e btop &
 kitty --title="cava" -e cava &
