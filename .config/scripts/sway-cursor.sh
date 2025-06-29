@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sleep 5;
+sleep 2;
 
 swaymsg workspace 2;
