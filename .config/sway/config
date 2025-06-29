@@ -29,7 +29,7 @@ client.urgent           #173D49 #173D49 #ffffff
 assign [class="nvtop"] 9
 assign [class="btop"] 9
 assign [class="cava"] 9
-assign [class="tty"] 9
+assign [class="tty-clock"] 9
 assign [class="com.github.th_ch.youtube_music"] 9
 
 
@@ -41,11 +41,14 @@ assign [class="com.github.th_ch.youtube_music"] 9
 
 ### STARTUP EXECUTABLES ###
 
+exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-1/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-1/style.css
+
+exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-2/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-2/style.css
 
 exec kitty --title="btop" -e btop &
 exec kitty --title="nvtop" -e nvtop &
 exec kitty --title="cava" -e cava &
-exec kitty --title="tty" -e /home/tumbleweed/dotfiles/.config/scripts/tty.sh
+exec kitty --title="tty-clock" -e /home/tumbleweed/dotfiles/.config/scripts/tty-clock.sh
 
 exec /home/tumbleweed/dotfiles/.config/scripts/swayidle.sh
 
@@ -75,11 +78,9 @@ exec --no-startup-id /usr/bin/wob -c /home/tumbleweed/dotfiles/.config/sway/wob/
 
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
-exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-1/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-1/style.css
+exec swaymsg seat seat0 cursor set 1200 540
 
-exec /usr/bin/waybar -c /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-2/config -s /home/tumbleweed/dotfiles/.config/waybar/sway-default/DP-2/style.css
-
-exec swaymsg seat seat0 cursor set 2040 1080
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-workspace1.sh
 
 exec_always {
     systemctl --user import-environment
@@ -403,7 +404,7 @@ for_window [app_id="kclock"] floating enable
 for_window [title="nvtop"] floating enable
 for_window [title="btop"] floating enable
 for_window [title="cava"] floating enable
-for_window [title="tty"] floating enable
+for_window [title="tty-clock"] floating enable
 for_window [class="com.github.th_ch.youtube_music"] floating enable
 
 
