@@ -50,37 +50,31 @@ exec kitty --title="nvtop" -e nvtop &
 exec kitty --title="cava" -e cava &
 exec kitty --title="tty-clock" -e /home/tumbleweed/dotfiles/.config/scripts/tty-clock.sh
 
-exec /home/tumbleweed/dotfiles/.config/scripts/swayidle.sh
-
-# exec /home/tumbleweed/dotfiles/.config/scripts/sway-hud.sh
-
-exec /home/tumbleweed/dotfiles/.config/scripts/sway-resize-windows.sh
-
-exec /home/tumbleweed/dotfiles/.config/scripts/sway-move-windows.sh
-
-exec /home/tumbleweed/dotfiles/.config/scripts/sway-cursor.sh
-
-#exec /usr/bin/blueman-manager
-
-#exec /home/tumbleweed/dotfiles/.config/scripts/ytmusic.sh
+exec nm-applet
 
 exec youtube-music
 
-exec /home/tumbleweed/dotfiles/.config/scripts/sway-mullvad.sh
+exec /usr/bin/blueman-applet
 
 exec /usr/bin/virt-manager --show-systray
 
-exec nm-applet
-
-set $wob wob --config /home/tumbleweed/dotfiles/.config/sway/wob.ini
-
-exec --no-startup-id /usr/bin/wob -c /home/tumbleweed/dotfiles/.config/sway/wob/wob.ini
+exec swaymsg seat seat0 cursor set 1200 540
 
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
-exec swaymsg seat seat0 cursor set 1200 540
+exec /home/tumbleweed/dotfiles/.config/scripts/swayidle.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-init.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-cursor.sh
+
+exec /home/tumbleweed/dotfiles/.config/scripts/sway-mullvad.sh
 
 exec /home/tumbleweed/dotfiles/.config/scripts/sway-workspace1.sh
+
+set $wob wob --config /home/tumbleweed/dotfiles/.config/sway/wob.ini
+
+exec --no-startup-id /usr/bin/wob -c /home/tumbleweed/dotfiles/.config/sway/wob.ini
 
 exec_always {
     systemctl --user import-environment

@@ -65,7 +65,7 @@ done
 center_text "0) Exit"
 echo
 
-prompt="Choose session [0 to exit]: "
+prompt="Choose session or 0 to exit: "
 padding=$(( (term_width - ${#prompt}) / 2 ))
 (( padding < 0 )) && padding=0
 printf "%*s%s" $padding "" "$prompt"
