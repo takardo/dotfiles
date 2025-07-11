@@ -1,0 +1,1 @@
+clear; echo '$ c; nvidia-smi | head -n 12; echo; uname -r; echo; sudo modinfo nvidia | grep license; grep -E '\''^(NAME=|VERSION_ID=)'\'' /etc/os-release; echo; echo $XDG_SESSION_TYPE'; nvidia-smi | head -n 12; echo; uname -r; echo; sudo modinfo nvidia | grep license; grep -E '^(NAME=|VERSION_ID=)' /etc/os-release; echo; echo $XDG_SESSION_TYPE
