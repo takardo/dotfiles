@@ -52,7 +52,7 @@ toggle_dp3() {
         sed -i 's|^\s*#\s*monitor = DP-3, disable|monitor = DP-3, disable|' "$CONFIG"
         monitor_states["DP-3"]="disabled"
     else
-        sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|' "$CONFIG"
+        sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-515, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-515, 1, transform, 1|' "$CONFIG"
         sed -i 's|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|' "$CONFIG"
         monitor_states["DP-3"]="enabled"
     fi
@@ -97,7 +97,7 @@ disable_all_except_dp1() {
 enable_all_monitors() {
     sed -i 's|^\s*#\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|' "$CONFIG"
     sed -i 's|^\s*monitor = DP-2, disable|#monitor = DP-2, disable|' "$CONFIG"
-    sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|' "$CONFIG"
+    sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-515, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-515, 1, transform, 1|' "$CONFIG"
     sed -i 's|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|' "$CONFIG"
     local mode="${monitor_states["HDMI-A-1_MODE"]:-640x480@59.94}"
     sed -i 's|^\s*monitor = HDMI-A-1, disable|#monitor = HDMI-A-1, disable|' "$CONFIG"
