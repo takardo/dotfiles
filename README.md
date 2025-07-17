@@ -1,4 +1,4 @@
-![My Image](.config/assets/desktop1.png)
+![My Image](.config/assets/main.png)
 <details>
   <summary>Screenshot 1</summary>
   <img src=".config/assets/hyp2.png" alt="Screenshot 2">
