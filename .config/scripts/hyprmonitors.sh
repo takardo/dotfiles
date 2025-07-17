@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIG="$HOME/dotfiles/.config/hypr/hyprland.conf"
-STATE_FILE="/tmp/hypr_monitor_state"
+STATE_FILE="/home/tumbleweed/dotfiles/.config/scripts/hypr_monitor_state"
 
 MODES=(
     "640x480@59.94"
@@ -14,192 +14,152 @@ MODES=(
     "1920x1080@59.94"
 )
 
-dp2_enabled=false
-dp3_enabled=false
+declare -A monitor_states
 
-# Load saved state if exists
+# === STATE LOADING ===
 if [[ -f "$STATE_FILE" ]]; then
-    monitor_state=$(sed -n '1p' "$STATE_FILE")
-    saved_dp3_mode=$(sed -n '2p' "$STATE_FILE")
-else
-    monitor_state="unknown"
-    saved_dp3_mode=""
+    while IFS='=' read -r key value; do
+        monitor_states["$key"]="$value"
+    done < "$STATE_FILE"
 fi
 
-check_monitors_state() {
-    dp2_enabled=false
-    dp3_enabled=false
+write_state() {
+    {
+        for key in "${!monitor_states[@]}"; do
+            echo "$key=${monitor_states[$key]}"
+        done
+    } > "$STATE_FILE"
+}
 
-    if grep -qE '^\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3,' "$CONFIG"; then
-        dp2_enabled=true
+# === TOGGLES ===
+
+toggle_dp2() {
+    if [[ ${monitor_states["DP-2"]} == "enabled" ]]; then
+        sed -i 's|^\s*monitor = DP-2,.*|#&|' "$CONFIG"
+        sed -i 's|^\s*#\s*monitor = DP-2, disable|monitor = DP-2, disable|' "$CONFIG"
+        monitor_states["DP-2"]="disabled"
+    else
+        sed -i 's|^\s*#\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|' "$CONFIG"
+        sed -i 's|^\s*monitor = DP-2, disable|#monitor = DP-2, disable|' "$CONFIG"
+        monitor_states["DP-2"]="enabled"
     fi
-
-    for mode in "${MODES[@]}"; do
-        if grep -qE "^\s*monitor = DP-3, $mode, 3000x180, 1" "$CONFIG"; then
-            dp3_enabled=true
-            break
-        fi
-    done
-}
-
-disable_monitors() {
-    sed -i 's|^\s*monitor = DP-2,.*|#&|' "$CONFIG"
-    sed -i 's|^\s*monitor = DP-3,.*|#&|' "$CONFIG"
-    sed -i 's|^\s*#\s*monitor = DP-2, disable|monitor = DP-2, disable|' "$CONFIG"
-    sed -i 's|^\s*#\s*monitor = DP-3, disable|monitor = DP-3, disable|' "$CONFIG"
-    echo "disabled" > "$STATE_FILE"
-    echo "" >> "$STATE_FILE"
-    hyprctl reload
-    echo "DP-2 and DP-3 monitors disabled"
-}
-
-enable_monitors_with_mode() {
-    local mode="$1"
-    sed -i 's|^\s*#\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3,|monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3,|' "$CONFIG"
-    sed -i 's|^\s*monitor = DP-2, disable|#monitor = DP-2, disable|' "$CONFIG"
-    sed -i 's|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|' "$CONFIG"
-    # Comment out all DP-3 modes first
-    for m in "${MODES[@]}"; do
-        sed -i "s|^\s*monitor = DP-3, $m, 3000x180, 1|#monitor = DP-3, $m, 3000x180, 1|" "$CONFIG"
-    done
-    # Uncomment chosen DP-3 mode
-    sed -i "s|^\s*#monitor = DP-3, $mode, 3000x180, 1|monitor = DP-3, $mode, 3000x180, 1|" "$CONFIG"
-    echo "enabled" > "$STATE_FILE"
-    echo "$mode" >> "$STATE_FILE"
-    hyprctl reload
-    echo "Monitors enabled with DP-3 mode $mode"
+    write_state
 }
 
 toggle_dp3() {
-    for m in "${MODES[@]}"; do
-        if grep -qE "^\s*monitor = DP-3, $m, 3000x180, 1" "$CONFIG"; then
-            echo "Disabling DP-3 monitor..."
-            sed -i "s|^\s*monitor = DP-3, $m, 3000x180, 1|#monitor = DP-3, $m, 3000x180, 1|" "$CONFIG"
-            sed -i "s|^\s*#\s*monitor = DP-3, disable|monitor = DP-3, disable|" "$CONFIG"
-            echo "disabled" > "$STATE_FILE"
-            echo "" >> "$STATE_FILE"
-            hyprctl reload
-            echo "DP-3 toggled off."
-            return
-        fi
-    done
-    echo "Enabling DP-3 monitor with default mode 640x480@59.94..."
-    sed -i "s|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|" "$CONFIG"
-    sed -i "s|^\s*#\s*monitor = DP-3, 640x480@59.94, 3000x180, 1|monitor = DP-3, 640x480@59.94, 3000x180, 1|" "$CONFIG"
-    echo "enabled" > "$STATE_FILE"
-    echo "640x480@59.94" >> "$STATE_FILE"
-    hyprctl reload
-    echo "DP-3 toggled on."
+    if [[ ${monitor_states["DP-3"]} == "enabled" ]]; then
+        sed -i 's|^\s*monitor = DP-3,.*|#&|' "$CONFIG"
+        sed -i 's|^\s*#\s*monitor = DP-3, disable|monitor = DP-3, disable|' "$CONFIG"
+        monitor_states["DP-3"]="disabled"
+    else
+        sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|' "$CONFIG"
+        sed -i 's|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|' "$CONFIG"
+        monitor_states["DP-3"]="enabled"
+    fi
+    write_state
 }
 
-# === MAIN ===
+toggle_hdmi() {
+    if [[ ${monitor_states["HDMI-A-1"]} == "enabled" ]]; then
+        for m in "${MODES[@]}"; do
+            sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
+        done
+        sed -i 's|^\s*#\s*monitor = HDMI-A-1, disable|monitor = HDMI-A-1, disable|' "$CONFIG"
+        monitor_states["HDMI-A-1"]="disabled"
+    else
+        sed -i 's|^\s*monitor = HDMI-A-1, disable|#monitor = HDMI-A-1, disable|' "$CONFIG"
+        local mode="${monitor_states["HDMI-A-1_MODE"]:-640x480@59.94}"
+        for m in "${MODES[@]}"; do
+            sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
+        done
+        sed -i "s|^\s*#monitor = HDMI-A-1, $mode, 4080x480, 1|monitor = HDMI-A-1, $mode, 4080x480, 1|" "$CONFIG"
+        monitor_states["HDMI-A-1"]="enabled"
+        monitor_states["HDMI-A-1_MODE"]="$mode"
+    fi
+    write_state
+}
 
-check_monitors_state
-
-if $dp2_enabled && $dp3_enabled; then
-    echo "Monitors DP-2 and DP-3 are enabled."
-elif $dp2_enabled && ! $dp3_enabled; then
-    echo "Monitor DP-2 is enabled; DP-3 is disabled."
-elif ! $dp2_enabled && $dp3_enabled; then
-    echo "Monitor DP-3 is enabled; DP-2 is disabled."
-else
-    echo "Monitors DP-2 and DP-3 are currently disabled."
-fi
-
-echo
-
-if [[ "$monitor_state" == "enabled" ]]; then
-    echo "Last saved DP-3 mode: ${saved_dp3_mode:-None}"
-fi
-
-echo
-
-if $dp2_enabled && $dp3_enabled; then
-    echo "Select DP-3 mode to enable or other options:"
-    for i in "${!MODES[@]}"; do
-        printf " %d) %s\n" $((i+1)) "${MODES[i]}"
+disable_all_except_dp1() {
+    sed -i 's|^\s*monitor = DP-2,.*|#&|' "$CONFIG"
+    sed -i 's|^\s*#\s*monitor = DP-2, disable|monitor = DP-2, disable|' "$CONFIG"
+    sed -i 's|^\s*monitor = DP-3,.*|#&|' "$CONFIG"
+    sed -i 's|^\s*#\s*monitor = DP-3, disable|monitor = DP-3, disable|' "$CONFIG"
+    for m in "${MODES[@]}"; do
+        sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
     done
-    toggle_index=$(( ${#MODES[@]} + 1 ))
-    disable_index=$(( ${#MODES[@]} + 2 ))
-    echo " $toggle_index) Toggle DP-3 enable/disable"
-    echo " $disable_index) Disable both DP-2 and DP-3 monitors"
-    echo " 0) Exit"
+    sed -i 's|^\s*#\s*monitor = HDMI-A-1, disable|monitor = HDMI-A-1, disable|' "$CONFIG"
+    monitor_states["DP-2"]="disabled"
+    monitor_states["DP-3"]="disabled"
+    monitor_states["HDMI-A-1"]="disabled"
+    write_state
+}
 
-    read -rp "Enter choice [0-$disable_index]: " choice
+enable_all_monitors() {
+    sed -i 's|^\s*#\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|' "$CONFIG"
+    sed -i 's|^\s*monitor = DP-2, disable|#monitor = DP-2, disable|' "$CONFIG"
+    sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-480, 1, transform, 1|' "$CONFIG"
+    sed -i 's|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|' "$CONFIG"
+    local mode="${monitor_states["HDMI-A-1_MODE"]:-640x480@59.94}"
+    sed -i 's|^\s*monitor = HDMI-A-1, disable|#monitor = HDMI-A-1, disable|' "$CONFIG"
+    for m in "${MODES[@]}"; do
+        sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
+    done
+    sed -i "s|^\s*#monitor = HDMI-A-1, $mode, 4080x480, 1|monitor = HDMI-A-1, $mode, 4080x480, 1|" "$CONFIG"
+    monitor_states["DP-2"]="enabled"
+    monitor_states["DP-3"]="enabled"
+    monitor_states["HDMI-A-1"]="enabled"
+    monitor_states["HDMI-A-1_MODE"]="$mode"
+    write_state
+}
 
-    if ! [[ "$choice" =~ ^[0-9]+$ ]] || (( choice < 0 || choice > disable_index )); then
-        echo "Invalid choice."
-        exit 1
-    fi
+# === MENU ===
 
-    if (( choice == 0 )); then
-        echo "Exiting."
-        exit 0
-    elif (( choice == toggle_index )); then
-        toggle_dp3
-    elif (( choice == disable_index )); then
-        disable_monitors
-    else
+echo "Select an option:"
+for i in "${!MODES[@]}"; do
+    printf " %d) Set HDMI-A-1 with %s\n" $((i+1)) "${MODES[i]}"
+done
+echo " 9) Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})"
+echo "10) Toggle DP-2 (${monitor_states["DP-2"]:-unknown})"
+echo "11) Toggle DP-3 (${monitor_states["DP-3"]:-unknown})"
+echo "12) Disable all except DP-1"
+echo "13) Enable all monitors"
+echo " 0) Exit"
+
+read -rp "Enter choice [0-13]: " choice
+
+case $choice in
+    [1-8])
         selected_mode="${MODES[choice-1]}"
-        enable_monitors_with_mode "$selected_mode"
-    fi
-
-elif $dp2_enabled && ! $dp3_enabled; then
-    read -rp "Enable DP-3 and select mode? (y/N): " answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        echo -e "\nSelect DP-3 mode to enable:"
-        for i in "${!MODES[@]}"; do
-            printf " %d) %s\n" $((i+1)) "${MODES[i]}"
+        sed -i 's|^\s*monitor = HDMI-A-1, disable|#monitor = HDMI-A-1, disable|' "$CONFIG"
+        for m in "${MODES[@]}"; do
+            sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
         done
-        echo " 0) Exit"
-        read -rp "Enter choice [0-${#MODES[@]}]: " choice
-        if ! [[ "$choice" =~ ^[0-9]+$ ]] || (( choice < 0 || choice > ${#MODES[@]} )); then
-            echo "Invalid choice."
-            exit 1
-        fi
-        if (( choice == 0 )); then
-            echo "Exiting."
-            exit 0
-        fi
-        selected_mode="${MODES[choice-1]}"
-        enable_monitors_with_mode "$selected_mode"
-    else
-        echo "No changes made."
-    fi
-
-elif ! $dp2_enabled && $dp3_enabled; then
-    read -rp "Enable DP-2? (y/N): " answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        sed -i 's|^\s*#\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3,|monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3,|' "$CONFIG"
-        sed -i 's|^\s*monitor = DP-2, disable|#monitor = DP-2, disable|' "$CONFIG"
-        echo "enabled" > "$STATE_FILE"
-        echo "$saved_dp3_mode" >> "$STATE_FILE"
+        sed -i "s|^\s*#monitor = HDMI-A-1, $selected_mode, 4080x480, 1|monitor = HDMI-A-1, $selected_mode, 4080x480, 1|" "$CONFIG"
+        monitor_states["HDMI-A-1"]="enabled"
+        monitor_states["HDMI-A-1_MODE"]="$selected_mode"
+        write_state
         hyprctl reload
-        echo "DP-2 monitor enabled."
-    else
-        echo "No changes made."
-    fi
-
-else
-    read -rp "Enable monitors and select DP-3 mode? (y/N): " answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        echo -e "\nSelect DP-3 mode to enable:"
-        for i in "${!MODES[@]}"; do
-            printf " %d) %s\n" $((i+1)) "${MODES[i]}"
-        done
-        echo " 0) Exit"
-        read -rp "Enter choice [0-${#MODES[@]}]: " choice
-        if ! [[ "$choice" =~ ^[0-9]+$ ]] || (( choice < 0 || choice > ${#MODES[@]} )); then
-            echo "Invalid choice."
-            exit 1
-        fi
-        if (( choice == 0 )); then
-            echo "Exiting."
-            exit 0
-        fi
-        selected_mode="${MODES[choice-1]}"
-        enable_monitors_with_mode "$selected_mode"
-    else
-        echo "No changes made."
-    fi
-fi
+        echo "HDMI-A-1 enabled with mode $selected_mode."
+        ;;
+    9)
+        toggle_hdmi && hyprctl reload
+        ;;
+    10)
+        toggle_dp2 && hyprctl reload
+        ;;
+    11)
+        toggle_dp3 && hyprctl reload
+        ;;
+    12)
+        disable_all_except_dp1 && hyprctl reload
+        ;;
+    13)
+        enable_all_monitors && hyprctl reload
+        ;;
+    0)
+        echo "Exiting." && exit 0
+        ;;
+    *)
+        echo "Invalid choice." && exit 1
+        ;;
+esac
