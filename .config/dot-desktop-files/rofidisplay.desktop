@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Hyprland Display Manager
+Exec=/home/tumbleweed/dotfiles/.config/scripts/rofidisplay.sh
+Icon=monitor
+Terminal=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=EDuke32
+Comment=Launch EDuke32 via Wine
+Exec=wine /home/tumbleweed/eduke32/eduke32_current/eduke32.exe
+Path=/home/tumbleweed/eduke32/eduke32_current
+Icon=/home/tumbleweed/eduke32/eduke32_current/eduke32.png
+Terminal=false
+Type=Application
+Categories=Game;

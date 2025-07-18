@@ -16,28 +16,16 @@ MODES=(
 
 declare -A monitor_states
 
-# Load state file if exists
-if [[ -f "$STATE_FILE" ]]; then
-    while IFS='=' read -r key value; do
-        monitor_states["$key"]="$value"
-    done < "$STATE_FILE"
-fi
+[[ -f "$STATE_FILE" ]] && while IFS='=' read -r k v; do monitor_states["$k"]="$v"; done < "$STATE_FILE"
 
-# Detect DP-1 status from config if not in state file
-if [[ -z "${monitor_states["DP-1"]}" ]]; then
-    if grep -q '^\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1' "$CONFIG"; then
-        monitor_states["DP-1"]="enabled"
-    else
-        monitor_states["DP-1"]="disabled"
-    fi
-fi
+[[ -z "${monitor_states["DP-1"]}" ]] && \
+    grep -q '^\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1' "$CONFIG" && \
+    monitor_states["DP-1"]="enabled" || monitor_states["DP-1"]="disabled"
 
 write_state() {
-    {
-        for key in "${!monitor_states[@]}"; do
-            echo "$key=${monitor_states[$key]}"
-        done
-    } > "$STATE_FILE"
+    for k in "${!monitor_states[@]}"; do
+        echo "$k=${monitor_states[$k]}"
+    done > "$STATE_FILE"
 }
 
 toggle_dp1() {
@@ -126,7 +114,6 @@ disable_all_except_dp1() {
     write_state
     hyprctl reload &>/dev/null
     sleep 1
-    # No waypaper restore here on disable
 }
 
 enable_all_monitors() {
@@ -150,64 +137,59 @@ enable_all_monitors() {
     waypaper --restore &>/dev/null
 }
 
-# Main interactive loop with gum menu
-
 while true; do
-    CHOICE=$(gum choose --cursor.foreground="#00FF00" --header="Hyprland Display Manager - Choose an option" \
-        "Set HDMI-A-1 Resolution" \
-        "Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})" \
-        "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})" \
-        "Toggle DP-2 (${monitor_states["DP-2"]:-unknown})" \
-        "Toggle DP-3 (${monitor_states["DP-3"]:-unknown})" \
-        "Disable all except DP-1" \
-        "Enable all monitors" \
-        "Exit")
+    OPTIONS=$(
+        printf "%s\n" \
+        "📺 Set HDMI-A-1 Resolution" \
+        "📺 Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})" \
+        "🖥️ Toggle DP-1 (${monitor_states["DP-1"]:-unknown})" \
+        "🖥️ Toggle DP-2 (${monitor_states["DP-2"]:-unknown})" \
+        "🖥️ Toggle DP-3 (${monitor_states["DP-3"]:-unknown})" \
+        "⛔ Disable all except DP-1" \
+        "✅ Enable all monitors" \
+        "🚪 Exit"
+    )
+    CHOICE=$(echo "$OPTIONS" | rofi -dmenu -config /home/tumbleweed/dotfiles/.config/rofi/rofidisplay/config.rasi -p "Hyprland Display Manager")
 
-    case $CHOICE in
-        "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})")
-            toggle_dp1
-            gum spin --spinner dot --title "Toggled DP-1" -- sleep 1
-            ;;
-        "Set HDMI-A-1 Resolution")
-            MODE=$(gum choose --cursor.foreground="#d62096" --header="Select HDMI-A-1 resolution" "${MODES[@]}")
-            if [[ -n "$MODE" ]]; then
-                sed -i 's|^\s*monitor = HDMI-A-1, disable|#monitor = HDMI-A-1, disable|' "$CONFIG"
-                for m in "${MODES[@]}"; do
-                    sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
-                done
-                sed -i "s|^\s*#monitor = HDMI-A-1, $MODE, 4080x480, 1|monitor = HDMI-A-1, $MODE, 4080x480, 1|" "$CONFIG"
-                monitor_states["HDMI-A-1"]="enabled"
-                monitor_states["HDMI-A-1_MODE"]="$MODE"
-                write_state
-                hyprctl reload &>/dev/null
-                sleep 1
-                waypaper --restore &>/dev/null
-                gum spin --spinner dot --title "HDMI-A-1 enabled with mode $MODE" -- sleep 1
+    # Exit if ESC or no input
+    if [[ -z "$CHOICE" ]]; then
+        exit 0
+    fi
+
+    case "$CHOICE" in
+        "📺 Set HDMI-A-1 Resolution")
+            SELECTED=$(printf "%s\n" "${MODES[@]}" | rofi -dmenu -config /home/tumbleweed/dotfiles/.config/rofi/rofidisplay/config.rasi -p "HDMI-A-1 Resolution")
+
+            # Exit if ESC or no input in resolution menu
+            if [[ -z "$SELECTED" ]]; then
+                exit 0
             fi
+
+            sed -i 's|^\s*monitor = HDMI-A-1, disable|#monitor = HDMI-A-1, disable|' "$CONFIG"
+            for m in "${MODES[@]}"; do
+                sed -i "s|^\s*monitor = HDMI-A-1, $m, 4080x480, 1|#monitor = HDMI-A-1, $m, 4080x480, 1|" "$CONFIG"
+            done
+            sed -i "s|^\s*#monitor = HDMI-A-1, $SELECTED, 4080x480, 1|monitor = HDMI-A-1, $SELECTED, 4080x480, 1|" "$CONFIG"
+            monitor_states["HDMI-A-1"]="enabled"
+            monitor_states["HDMI-A-1_MODE"]="$SELECTED"
+            write_state
+            hyprctl reload &>/dev/null
+            sleep 1
+            waypaper --restore &>/dev/null
             ;;
-        "Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})")
-            toggle_hdmi
-            gum spin --spinner dot --title "Toggled HDMI-A-1" -- sleep 1
-            ;;
-        "Toggle DP-2 (${monitor_states["DP-2"]:-unknown})")
-            toggle_dp2
-            gum spin --spinner dot --title "Toggled DP-2" -- sleep 1
-            ;;
-        "Toggle DP-3 (${monitor_states["DP-3"]:-unknown})")
-            toggle_dp3
-            gum spin --spinner dot --title "Toggled DP-3" -- sleep 1
-            ;;
-        "Disable all except DP-1")
-            disable_all_except_dp1
-            gum spin --spinner dot --title "Disabled all except DP-1" -- sleep 1
-            ;;
-        "Enable all monitors")
-            enable_all_monitors
-            gum spin --spinner dot --title "Enabled all monitors" -- sleep 1
-            ;;
-        "Exit")
-            echo "Exiting..."
-            exit 0
-            ;;
+        "📺 Toggle HDMI-A-1 ("*)
+            toggle_hdmi ;;
+        "🖥️ Toggle DP-1 ("*)
+            toggle_dp1 ;;
+        "🖥️ Toggle DP-2 ("*)
+            toggle_dp2 ;;
+        "🖥️ Toggle DP-3 ("*)
+            toggle_dp3 ;;
+        "⛔ Disable all except DP-1")
+            disable_all_except_dp1 ;;
+        "✅ Enable all monitors")
+            enable_all_monitors ;;
+        "🚪 Exit")
+            exit 0 ;;
     esac
 done

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=GZDoom Brutal v21
+Exec=bash -c "gzdoom -file /home/tumbleweed/gzdoom/brutalv21.pk3 -config /home/tumbleweed/dotfiles/.config/gzdoom/gzdoom.ini & disown"
+Type=Application
+Terminal=false
+Icon=/home/tumbleweed/dotfiles/.config/icons/gzdoom.jpeg
+Categories=Game;

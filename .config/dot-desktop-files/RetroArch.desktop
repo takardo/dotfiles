@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=RetroArch
+Comment=Frontend for emulators, game engines and media players
+Exec=/home/tumbleweed/RetroArch/RetroArch-Linux-x86_64.AppImage
+Icon=/home/tumbleweed/RetroArch/retroarch.ico
+Type=Application
+Categories=Game;Emulator;
+Terminal=false
+StartupNotify=false
