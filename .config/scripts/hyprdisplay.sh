@@ -23,12 +23,37 @@ if [[ -f "$STATE_FILE" ]]; then
     done < "$STATE_FILE"
 fi
 
+# Detect DP-1 status from config if not in state file
+if [[ -z "${monitor_states["DP-1"]}" ]]; then
+    if grep -q '^\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1' "$CONFIG"; then
+        monitor_states["DP-1"]="enabled"
+    else
+        monitor_states["DP-1"]="disabled"
+    fi
+fi
+
 write_state() {
     {
         for key in "${!monitor_states[@]}"; do
             echo "$key=${monitor_states[$key]}"
         done
     } > "$STATE_FILE"
+}
+
+toggle_dp1() {
+    if [[ ${monitor_states["DP-1"]} == "enabled" ]]; then
+        sed -i 's|^\s*monitor = DP-1,.*|#&|' "$CONFIG"
+        sed -i 's|^\s*#\s*monitor = DP-1, disable|monitor = DP-1, disable|' "$CONFIG"
+        monitor_states["DP-1"]="disabled"
+    else
+        sed -i 's|^\s*#\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1|monitor = DP-1, 1920x1080@179.98, 1080x0, 1|' "$CONFIG"
+        sed -i 's|^\s*monitor = DP-1, disable|#monitor = DP-1, disable|' "$CONFIG"
+        monitor_states["DP-1"]="enabled"
+    fi
+    write_state
+    hyprctl reload &>/dev/null
+    sleep 1
+    waypaper --restore &>/dev/null
 }
 
 toggle_dp2() {
@@ -128,16 +153,21 @@ enable_all_monitors() {
 # Main interactive loop with gum menu
 
 while true; do
-    CHOICE=$(gum choose --cursor.foreground="#00FF00" --header="Hyprland Monitor Manager - Choose an option" \
-        "Set HDMI-A-1 Resolution" \
-        "Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})" \
-        "Toggle DP-2 (${monitor_states["DP-2"]:-unknown})" \
-        "Toggle DP-3 (${monitor_states["DP-3"]:-unknown})" \
-        "Disable all except DP-1" \
-        "Enable all monitors" \
-        "Exit")
+    CHOICE=$(gum choose --cursor.foreground="#00FF00" --header.foreground="#FF69B4" --header="Hyprland Display Manager - Choose an option" \
+    "Set HDMI-A-1 Resolution" \
+    "Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})" \
+    "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})" \
+    "Toggle DP-2 (${monitor_states["DP-2"]:-unknown})" \
+    "Toggle DP-3 (${monitor_states["DP-3"]:-unknown})" \
+    "Disable all except DP-1" \
+    "Enable all monitors" \
+    "Exit")
 
     case $CHOICE in
+        "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})")
+            toggle_dp1
+            gum spin --spinner dot --title "Toggled DP-1" -- sleep 1
+            ;;
         "Set HDMI-A-1 Resolution")
             MODE=$(gum choose --cursor.foreground="#00FFFF" --header="Select HDMI-A-1 resolution" "${MODES[@]}")
             if [[ -n "$MODE" ]]; then

@@ -16,6 +16,10 @@ MODES=(
 
 declare -A monitor_states
 
+restore_wallpaper() {
+    waypaper --restore >/dev/null 2>&1 &
+}
+
 # === STATE LOADING ===
 if [[ -f "$STATE_FILE" ]]; then
     while IFS='=' read -r key value; do
@@ -33,6 +37,20 @@ write_state() {
 
 # === TOGGLES ===
 
+toggle_dp1() {
+    if [[ ${monitor_states["DP-1"]} == "enabled" ]]; then
+        sed -i 's|^\s*monitor = DP-1,.*|#&|' "$CONFIG"
+        sed -i 's|^\s*#\s*monitor = DP-1, disable|monitor = DP-1, disable|' "$CONFIG"
+        monitor_states["DP-1"]="disabled"
+    else
+        sed -i 's|^\s*#\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1|monitor = DP-1, 1920x1080@179.98, 1080x0, 1|' "$CONFIG"
+        sed -i 's|^\s*monitor = DP-1, disable|#monitor = DP-1, disable|' "$CONFIG"
+        monitor_states["DP-1"]="enabled"
+        restore_wallpaper
+    fi
+    write_state
+}
+
 toggle_dp2() {
     if [[ ${monitor_states["DP-2"]} == "enabled" ]]; then
         sed -i 's|^\s*monitor = DP-2,.*|#&|' "$CONFIG"
@@ -42,6 +60,7 @@ toggle_dp2() {
         sed -i 's|^\s*#\s*monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|monitor = DP-2, 1920x1080@60.00, 0x-515, 1, transform, 3|' "$CONFIG"
         sed -i 's|^\s*monitor = DP-2, disable|#monitor = DP-2, disable|' "$CONFIG"
         monitor_states["DP-2"]="enabled"
+        restore_wallpaper
     fi
     write_state
 }
@@ -55,6 +74,7 @@ toggle_dp3() {
         sed -i 's|^\s*#\s*monitor = DP-3, 1920x1080@60.00, 3000x-515, 1, transform, 1|monitor = DP-3, 1920x1080@60.00, 3000x-515, 1, transform, 1|' "$CONFIG"
         sed -i 's|^\s*monitor = DP-3, disable|#monitor = DP-3, disable|' "$CONFIG"
         monitor_states["DP-3"]="enabled"
+        restore_wallpaper
     fi
     write_state
 }
@@ -75,6 +95,7 @@ toggle_hdmi() {
         sed -i "s|^\s*#monitor = HDMI-A-1, $mode, 4080x480, 1|monitor = HDMI-A-1, $mode, 4080x480, 1|" "$CONFIG"
         monitor_states["HDMI-A-1"]="enabled"
         monitor_states["HDMI-A-1_MODE"]="$mode"
+        restore_wallpaper
     fi
     write_state
 }
@@ -119,13 +140,14 @@ for i in "${!MODES[@]}"; do
     printf " %d) Set HDMI-A-1 with %s\n" $((i+1)) "${MODES[i]}"
 done
 echo " 9) Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})"
-echo "10) Toggle DP-2 (${monitor_states["DP-2"]:-unknown})"
-echo "11) Toggle DP-3 (${monitor_states["DP-3"]:-unknown})"
-echo "12) Disable all except DP-1"
-echo "13) Enable all monitors"
+echo "10) Toggle DP-1 (${monitor_states["DP-1"]:-unknown})"
+echo "11) Toggle DP-2 (${monitor_states["DP-2"]:-unknown})"
+echo "12) Toggle DP-3 (${monitor_states["DP-3"]:-unknown})"
+echo "13) Disable all except DP-1"
+echo "14) Enable all monitors"
 echo " 0) Exit"
 
-read -rp "Enter choice [0-13]: " choice
+read -rp "Enter choice [0-14]: " choice
 
 case $choice in
     [1-8])
@@ -138,23 +160,27 @@ case $choice in
         monitor_states["HDMI-A-1"]="enabled"
         monitor_states["HDMI-A-1_MODE"]="$selected_mode"
         write_state
-        hyprctl reload
+        hyprctl reload >/dev/null 2>&1
+        restore_wallpaper
         echo "HDMI-A-1 enabled with mode $selected_mode."
         ;;
     9)
-        toggle_hdmi && hyprctl reload
+        toggle_hdmi && hyprctl reload >/dev/null 2>&1
         ;;
     10)
-        toggle_dp2 && hyprctl reload
+        toggle_dp1 && hyprctl reload >/dev/null 2>&1
         ;;
     11)
-        toggle_dp3 && hyprctl reload
+        toggle_dp2 && hyprctl reload >/dev/null 2>&1
         ;;
     12)
-        disable_all_except_dp1 && hyprctl reload
+        toggle_dp3 && hyprctl reload >/dev/null 2>&1
         ;;
     13)
-        enable_all_monitors && hyprctl reload
+        disable_all_except_dp1 && hyprctl reload >/dev/null 2>&1
+        ;;
+    14)
+        enable_all_monitors && hyprctl reload >/dev/null 2>&1
         ;;
     0)
         echo "Exiting." && exit 0
