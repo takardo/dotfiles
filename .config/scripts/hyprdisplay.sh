@@ -153,15 +153,15 @@ enable_all_monitors() {
 # Main interactive loop with gum menu
 
 while true; do
-    CHOICE=$(gum choose --cursor.foreground="#00FF00" --header.foreground="#FF69B4" --header="Hyprland Display Manager - Choose an option" \
-    "Set HDMI-A-1 Resolution" \
-    "Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})" \
-    "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})" \
-    "Toggle DP-2 (${monitor_states["DP-2"]:-unknown})" \
-    "Toggle DP-3 (${monitor_states["DP-3"]:-unknown})" \
-    "Disable all except DP-1" \
-    "Enable all monitors" \
-    "Exit")
+    CHOICE=$(gum choose --cursor.foreground="#00FF00" --header="Hyprland Display Manager - Choose an option" \
+        "Set HDMI-A-1 Resolution" \
+        "Toggle HDMI-A-1 (${monitor_states["HDMI-A-1"]:-unknown})" \
+        "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})" \
+        "Toggle DP-2 (${monitor_states["DP-2"]:-unknown})" \
+        "Toggle DP-3 (${monitor_states["DP-3"]:-unknown})" \
+        "Disable all except DP-1" \
+        "Enable all monitors" \
+        "Exit")
 
     case $CHOICE in
         "Toggle DP-1 (${monitor_states["DP-1"]:-unknown})")
