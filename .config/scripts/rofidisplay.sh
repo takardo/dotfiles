@@ -14,13 +14,22 @@ MODES=(
     "1920x1080@59.94"
 )
 
+# Define DP-1 config line exactly as in your hyprland.conf
+DP1_CONFIG="monitor = DP-1, 1920x1080@179.98, 1080x0, 1"
+
 declare -A monitor_states
 
+# Load states from file if exists
 [[ -f "$STATE_FILE" ]] && while IFS='=' read -r k v; do monitor_states["$k"]="$v"; done < "$STATE_FILE"
 
-[[ -z "${monitor_states["DP-1"]}" ]] && \
-    grep -q '^\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1' "$CONFIG" && \
-    monitor_states["DP-1"]="enabled" || monitor_states["DP-1"]="disabled"
+# Initialize DP-1 state if not present by checking config for exact DP1_CONFIG line
+if [[ -z "${monitor_states["DP-1"]}" ]]; then
+    if grep -q "^$DP1_CONFIG" "$CONFIG"; then
+        monitor_states["DP-1"]="enabled"
+    else
+        monitor_states["DP-1"]="disabled"
+    fi
+fi
 
 write_state() {
     for k in "${!monitor_states[@]}"; do
@@ -30,11 +39,11 @@ write_state() {
 
 toggle_dp1() {
     if [[ ${monitor_states["DP-1"]} == "enabled" ]]; then
-        sed -i 's|^\s*monitor = DP-1,.*|#&|' "$CONFIG"
+        sed -i "s|^$DP1_CONFIG|#$DP1_CONFIG|" "$CONFIG"
         sed -i 's|^\s*#\s*monitor = DP-1, disable|monitor = DP-1, disable|' "$CONFIG"
         monitor_states["DP-1"]="disabled"
     else
-        sed -i 's|^\s*#\s*monitor = DP-1, 1920x1080@179.98, 1080x0, 1|monitor = DP-1, 1920x1080@179.98, 1080x0, 1|' "$CONFIG"
+        sed -i "s|^#$DP1_CONFIG|$DP1_CONFIG|" "$CONFIG"
         sed -i 's|^\s*monitor = DP-1, disable|#monitor = DP-1, disable|' "$CONFIG"
         monitor_states["DP-1"]="enabled"
     fi
