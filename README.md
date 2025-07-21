@@ -40,4 +40,4 @@
   <img src=".config/assets/hyp8.png" alt="Screenshot 8">
 </details>
 
-![My Image](.config/assets/sway0.png)
+![My Image](.config/assets/swaymain.png)
