@@ -9,6 +9,7 @@
     "modules-left": [
         "hyprland/workspaces",
         "network",
+        "custom/terminal",
         "custom/scratchpad",
         "custom/waypaper",
         "custom/firefox",
@@ -29,12 +30,24 @@
         "bluetooth",
         "custom/wlogout",
         "custom/emo",
+        "custom/hyprpicker",
         "cpu",
+        "temperature",
         "memory",
         "pulseaudio",
         "clock"
 
     ],
+
+
+    "custom/terminal": {
+        "tooltip": true,
+        "tooltip-format": "ghostty",
+        "format": "",
+        "on-click": "exec ghostty"
+
+    },
+
 
     "hyprland/workspaces": {
         "all-outputs": false,
@@ -269,7 +282,7 @@
         "tooltip": true,
         "tooltip-format": "ColorPicker",
         "format": "",
-        "on-click": "exec hyprpicker -f rgb -a"
+        "on-click": "exec hyprpicker -n -a -t"
 
     },
 

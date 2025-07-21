@@ -97,6 +97,21 @@ border-color: rgb(221, 182, 242);
 
 }
 
+#custom-terminal {
+color: rgb(221, 182, 242);
+margin: 3px 3px;
+padding: 4px 8px;
+background-color: rgb(22, 22, 30);
+border: 3px solid rgb(36, 40, 59);
+border-radius: 8px;
+transition: background-color 0.4s, border-color 0.4s;
+    }
+
+#custom-terminal:hover {
+background-color: rgba(221, 182, 242, 0.4);
+border-color: rgb(221, 182, 242);
+}
+
 #bluetooth.disabled,
 #bluetooth.off {
 color: rgba(128, 128, 128, 1);
