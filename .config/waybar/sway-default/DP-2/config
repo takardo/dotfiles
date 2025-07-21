@@ -5,10 +5,10 @@
     // "width": 1280, // Waybar width
     // "gtk-layer-shell": "false",
     // Choose the order of the modules
-    "output": ["DP-1", "DP-2"],
+    "output": ["DP-2"],
     "modules-left": ["sway/workspaces", "custom/wlogout", "custom/hyprlock", "battery", "custom/waypaper", "custom/dolphin", "custom/firefox", "custom/calc", "custom/hyprpicker", "custom/zypper", "custom/scratchpad", "network"],
     "modules-center": ["sway/window", "sway/mode"],
-    "modules-right": ["tray", "bluetooth", "cpu", "memory", "temperature", "backlight",  "pulseaudio", "custom/layout", "clock", "custom/notification"],
+    "modules-right": ["tray", "bluetooth", "cpu", "memory", "temperature", "backlight",  "pulseaudio", "custom/layout", "custom/notification"],
     "sway/mode": {
         "format": " {}"
     },
@@ -31,7 +31,7 @@
     "tooltip": true,
     "tooltip-format": "ColorPicker",
     "format": "",
-    "on-click": "exec hyprpicker"
+    "on-click": "exec /home/tumbleweed/dotfiles/.config/scripts/color-picker.sh clipboard"
     },
 
 
