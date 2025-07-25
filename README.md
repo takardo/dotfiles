@@ -13,7 +13,7 @@
 </details>
 <details>
   <summary>Screenshot 4</summary>
-  <img src=".config/assets/hyprdisplay.png" alt="Screenshot 2">
+  <img src=".config/assets/rofidisplay2.png" alt="Screenshot 2">
 </details>
 <details>
   <summary>Screenshot 5</summary>
